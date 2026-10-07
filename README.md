@@ -2,72 +2,72 @@
 
 <img alt="Walid Elonk" src="./assets/header.svg" width="640">
 
-<br><br>
+<br>
 
-<a href="https://souphater.page"><img alt="souphater.page" src="./assets/pill-website.svg" height="34"></a>
-&nbsp;
-<a href="mailto:walidelonk@gmail.com"><img alt="walidelonk@gmail.com" src="./assets/pill-email.svg" height="34"></a>
-&nbsp;
-<img alt="cs student · fsr" src="./assets/pill-fsr.svg" height="34">
+<a href="https://souphater.page"><img alt="souphater.page" src="https://img.shields.io/badge/website-souphater.page-e0526a?style=flat-square&labelColor=1f0f14&logo=firefoxbrowser&logoColor=e0526a"></a>
+<a href="mailto:walidelonk@gmail.com"><img alt="email" src="https://img.shields.io/badge/mail-walidelonk@gmail.com-e0526a?style=flat-square&labelColor=1f0f14&logo=gmail&logoColor=e0526a"></a>
+<img alt="cs student" src="https://img.shields.io/badge/cs_student-fsr-e0526a?style=flat-square&labelColor=1f0f14">
 
 <br><br>
 
-> *"every elegant solution eventually creates a new, much worse problem."*
+*"every elegant solution eventually creates a new, much worse problem."*
 
-## <img alt="about me" src="./assets/h-about.svg" width="640" height="56">
+</div>
+
+<br>
+
+<h2><img alt="01 / ABOUT" src="https://img.shields.io/badge/01-ABOUT-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
 i build weird software to kill time, and sometimes it turns into something useful.
 
 away from the keyboard: cats (i photograph them and collect cat facts), doodling, and soup. i make a lot of soup. *(yes, souphater.page. no, i don't hate soup.)*
 
+<h2><img alt="02 / WHAT I'M BUILDING" src="https://img.shields.io/badge/02-WHAT%20I%27M%20BUILDING-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
+
+| project | what it does | stack | status |
+|:--|:--|:--|:--|
+| [**ditto**](https://github.com/walsoup/ditto) | record a voice note on android and it lands in whatever chat you're in. typing on glass sucks. | ![kotlin](https://img.shields.io/badge/kotlin-1f0f14?style=flat-square&logo=kotlin&logoColor=e0526a) | ![alpha](https://img.shields.io/badge/alpha-b87a8f?style=flat-square) |
+| [**fichegen**](https://github.com/walsoup/Fichegen) | lesson prep for teachers, written by an llm so you don't have to. native macos app on `main`, a [windows build](https://github.com/walsoup/Fichegen/tree/windows-native) on its own branch, original python script in history. | ![python](https://img.shields.io/badge/python-1f0f14?style=flat-square&logo=python&logoColor=e0526a) ![macos](https://img.shields.io/badge/macos-1f0f14?style=flat-square&logo=apple&logoColor=e0526a) |  |
+| [**intel-arc-llm**](https://github.com/walsoup/intel-arc-llm) | local llm inference tuned for intel arc igpus: vulkan, dp4a, speculative decoding. | ![c++](https://img.shields.io/badge/c++-1f0f14?style=flat-square&logo=cplusplus&logoColor=e0526a) | ![moving fast](https://img.shields.io/badge/moving_fast-e0b94a?style=flat-square) |
+| [**gemwallet**](https://github.com/walsoup/gemwallet) | finance tracker for android. encrypted local db, no telemetry, works offline. optional api if you want sync. | ![kotlin](https://img.shields.io/badge/kotlin-1f0f14?style=flat-square&logo=kotlin&logoColor=e0526a) | ![almost done](https://img.shields.io/badge/almost_done-8fc96a?style=flat-square) |
+| [**agent-base**](https://github.com/walsoup/agent-base) | a small agent loop with streaming, reasoning logs and human approval. | ![typescript](https://img.shields.io/badge/typescript-1f0f14?style=flat-square&logo=typescript&logoColor=e0526a) | ![shipping](https://img.shields.io/badge/shipping-79b38a?style=flat-square) |
+| [**bitnet**](https://github.com/walsoup/bitnet) | android bluetooth mesh, plus internet sharing over bluetooth without root. | ![android](https://img.shields.io/badge/android-1f0f14?style=flat-square&logo=android&logoColor=e0526a) | ![unfinished](https://img.shields.io/badge/unfinished-c64750?style=flat-square) |
+
+> bitnet will break on you. that's the honest status.
+
 <br>
 
-<img alt="Susie: Hey! You look like someone who’d spend 40 hours building an offline mesh instead of studying." src="./assets/dialogue-susie.svg" width="640" height="130">
+<h2><img alt="03 / SMALLER STUFF" src="https://img.shields.io/badge/03-SMALLER%20STUFF-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
-## <img alt="what i'm building" src="./assets/h-building.svg" width="640" height="56">
+| project | what it does |
+|:--|:--|
+| [**tether-compass**](https://github.com/walsoup/tether-compass) | a web compass for long-distance couples. it lights up when you're facing each other. |
+| [**discord-mcp**](https://github.com/walsoup/discord-mcp) | an mcp server so an ai can read and talk in discord. |
+| [**DirectMoutamadris**](https://github.com/walsoup/DirectMoutamadris) | check your moroccan grades without waiting on the slow portal. |
 
-<a href="https://github.com/walsoup/ditto"><img alt="ditto" src="./assets/card-ditto.svg" width="640" height="84"></a>
+<br>
 
-record a voice note on android and it lands in whatever chat you're in. done. typing on glass sucks.
+<h2><img alt="04 / WHAT I WRITE IN" src="https://img.shields.io/badge/04-WHAT%20I%20WRITE%20IN-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
-<a href="https://github.com/walsoup/Fichegen"><img alt="fichegen (profstudio)" src="./assets/card-fichegen.svg" width="640" height="84"></a>
+| what | which |
+|:--|:--|
+| **languages** | ![kotlin](https://img.shields.io/badge/kotlin-1f0f14?style=flat-square&logo=kotlin&logoColor=e0526a) ![python](https://img.shields.io/badge/python-1f0f14?style=flat-square&logo=python&logoColor=e0526a) ![typescript](https://img.shields.io/badge/typescript-1f0f14?style=flat-square&logo=typescript&logoColor=e0526a) ![javascript](https://img.shields.io/badge/javascript-1f0f14?style=flat-square&logo=javascript&logoColor=e0526a) ![c++](https://img.shields.io/badge/c++-1f0f14?style=flat-square&logo=cplusplus&logoColor=e0526a) ![rust](https://img.shields.io/badge/rust-1f0f14?style=flat-square&logo=rust&logoColor=e0526a) |
+| **runs on** | ![android](https://img.shields.io/badge/android-1f0f14?style=flat-square&logo=android&logoColor=e0526a) ![windows](https://img.shields.io/badge/windows-1f0f14?style=flat-square) ![macos](https://img.shields.io/badge/macos-1f0f14?style=flat-square&logo=apple&logoColor=e0526a) ![linux](https://img.shields.io/badge/linux-1f0f14?style=flat-square&logo=linux&logoColor=e0526a) ![node.js](https://img.shields.io/badge/node.js-1f0f14?style=flat-square&logo=nodedotjs&logoColor=e0526a) |
+| **focus** | offline protocols, audio dsp, agentic tooling, mobile ux |
 
-lesson prep for teachers, written by an llm so you don't have to. the repo opens on the native macos app. there's a [windows](https://github.com/walsoup/Fichegen/tree/windows-native) build on its own branch, and the original python script is still on `main`.
+<h2><img alt="05 / THE NUMBERS" src="https://img.shields.io/badge/05-THE%20NUMBERS-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
-**[intel-arc-llm](https://github.com/walsoup/intel-arc-llm)**
+<div align="center">
 
-local llm inference tuned for intel arc igpus (vulkan, dp4a, speculative decoding). new, still moving fast.
+<img height="170" alt="github stats" src="https://github-readme-stats.vercel.app/api?username=walsoup&show_icons=true&disable_animations=true&rank_icon=github&count_private=true&bg_color=1f0f14&title_color=e0526a&text_color=f4e3e8&icon_color=e0526a&border_color=54313e&hide_border=false">
+<img height="170" alt="top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=walsoup&layout=compact&disable_animations=true&hide_progress=false&langs_count=8&bg_color=1f0f14&title_color=e0526a&text_color=f4e3e8&icon_color=e0526a&border_color=54313e&hide_border=false">
 
-## <img alt="what i'm working on" src="./assets/h-working-on.svg" width="640" height="56">
+</div>
 
-<a href="https://github.com/walsoup/gemwallet"><img alt="gemwallet" src="./assets/card-gemwallet.svg" width="640" height="72"></a>
+<br>
 
-a finance tracker for android. encrypted local db, no telemetry, works offline. there's an optional api if you want sync. almost done, i'm just chasing visual bugs.
+<div align="center">
 
-<a href="https://github.com/walsoup/bitnet"><img alt="bluenet (bitnet)" src="./assets/card-bitnet.svg" width="640" height="72"></a>
-
-android bluetooth mesh, plus internet sharing over bluetooth without root. unfinished, expect it to break.
-
-<a href="https://github.com/walsoup/agent-base"><img alt="agent base" src="./assets/card-agent-base.svg" width="640" height="72"></a>
-
-a small agent loop with streaming, reasoning logs and human approval.
-
-## <img alt="smaller stuff" src="./assets/h-smaller.svg" width="640" height="56">
-
-<a href="https://github.com/walsoup/tether-compass"><img alt="tether compass" src="./assets/card-tether-compass.svg" width="640" height="60"></a>
-
-a web compass for long-distance couples. it lights up when you're facing each other.
-
-<a href="https://github.com/walsoup/DirectMoutamadris"><img alt="direct moutamadris" src="./assets/card-direct-moutamadris.svg" width="640" height="60"></a>
-
-check your moroccan grades without waiting on the slow portal.
-
-## <img alt="what i write in" src="./assets/h-stack.svg" width="640" height="56">
-
-<img alt="languages: kotlin, python, typescript, javascript, c++, rust. environments: android, windows, macos, linux, node.js. focus: offline protocols, audio dsp, agentic tooling, mobile ux." src="./assets/stack.svg" width="640" height="344">
-
-<br><br>
-
-<img alt="soup is just the best driving force :3" src="./assets/footer.svg" width="640" height="70">
+<img alt="soup is just the best driving force :3" src="./assets/footer.svg" width="640">
 
 </div>
