@@ -22,6 +22,12 @@ i build weird software to kill time, and sometimes it turns into something usefu
 
 away from the keyboard: cats (i photograph them and collect cat facts), doodling, and soup. i make a lot of soup. *(yes, souphater.page. no, i don't hate soup.)*
 
+<div align="center">
+
+<img alt="Susie's Idea text card" src="https://media0.giphy.com/media/LaZxW2zqktmReNNiFY/giphy.gif" height="140">
+
+</div>
+
 <h2><img alt="02 / WHAT I'M BUILDING" src="https://img.shields.io/badge/02-WHAT%20I%27M%20BUILDING-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
 | project | what it does | stack | status |
@@ -47,6 +53,12 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 
 <br>
 
+<div align="center">
+
+<img alt="Deltarune Susie, Kris and Ralsei panic meme" src="https://media0.giphy.com/media/khJQfxDCOc0zklBGBu/giphy.gif" height="140">
+
+</div>
+
 <h2><img alt="04 / WHAT I WRITE IN" src="https://img.shields.io/badge/04-WHAT%20I%20WRITE%20IN-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
 | what | which |
@@ -54,6 +66,12 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 | **languages** | ![kotlin](https://img.shields.io/badge/kotlin-1f0f14?style=flat-square&logo=kotlin&logoColor=e0526a) ![python](https://img.shields.io/badge/python-1f0f14?style=flat-square&logo=python&logoColor=e0526a) ![typescript](https://img.shields.io/badge/typescript-1f0f14?style=flat-square&logo=typescript&logoColor=e0526a) ![javascript](https://img.shields.io/badge/javascript-1f0f14?style=flat-square&logo=javascript&logoColor=e0526a) ![c++](https://img.shields.io/badge/c++-1f0f14?style=flat-square&logo=cplusplus&logoColor=e0526a) ![rust](https://img.shields.io/badge/rust-1f0f14?style=flat-square&logo=rust&logoColor=e0526a) |
 | **runs on** | ![android](https://img.shields.io/badge/android-1f0f14?style=flat-square&logo=android&logoColor=e0526a) ![windows](https://img.shields.io/badge/windows-1f0f14?style=flat-square) ![macos](https://img.shields.io/badge/macos-1f0f14?style=flat-square&logo=apple&logoColor=e0526a) ![linux](https://img.shields.io/badge/linux-1f0f14?style=flat-square&logo=linux&logoColor=e0526a) ![node.js](https://img.shields.io/badge/node.js-1f0f14?style=flat-square&logo=nodedotjs&logoColor=e0526a) |
 | **focus** | offline protocols, audio dsp, agentic tooling, mobile ux |
+
+<div align="center">
+
+<img alt="Susie's Idea, Kris launched on a rocket" src="https://media0.giphy.com/media/gS86cQTSdUxcEvelqB/giphy.gif" height="140">
+
+</div>
 
 <h2><img alt="05 / THE NUMBERS" src="https://img.shields.io/badge/05-THE%20NUMBERS-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
@@ -69,16 +87,5 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 <div align="center">
 
 <img alt="soup is just the best driving force :3" src="./assets/footer.svg" width="640">
-
-</div>
-
-<div align="center">
-
-<img alt="Susie's Idea, Kris launched on a rocket" src="https://media0.giphy.com/media/gS86cQTSdUxcEvelqB/giphy.gif" height="160">
-<img alt="Deltarune Susie, Kris and Ralsei panic meme" src="https://media0.giphy.com/media/khJQfxDCOc0zklBGBu/giphy.gif" height="160">
-<img alt="Deltarune Susie talk portrait" src="https://media0.giphy.com/media/oiegnqx6PFrBR5Berq/giphy.gif" height="160">
-<img alt="Awkward Deltarune Susie" src="https://media0.giphy.com/media/NeIWSCqeNeJDD3UQh4/giphy.gif" height="160">
-<img alt="Deltarune Susie talk sprite" src="https://media0.giphy.com/media/WOz5DoUuN8qSh987AB/giphy.gif" height="160">
-<img alt="Susie's Idea text card" src="https://media0.giphy.com/media/LaZxW2zqktmReNNiFY/giphy.gif" height="160">
 
 </div>
