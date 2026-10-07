@@ -45,33 +45,73 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 
 <h2><img alt="03 / SMALLER STUFF" src="https://img.shields.io/badge/03-SMALLER%20STUFF-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
-| project | what it does |
-|:--|:--|
-| [**tether-compass**](https://github.com/walsoup/tether-compass) | a web compass for long-distance couples. it lights up when you're facing each other. |
-| [**discord-mcp**](https://github.com/walsoup/discord-mcp) | an mcp server so an ai can read and talk in discord. |
-| [**DirectMoutamadris**](https://github.com/walsoup/DirectMoutamadris) | check your moroccan grades without waiting on the slow portal. |
+<table>
+<tr>
+<td valign="middle">
+<table>
+<thead>
+<tr>
+<th align="left">project</th>
+<th align="left">what it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="https://github.com/walsoup/tether-compass"><strong>tether-compass</strong></a></td>
+<td align="left">a web compass for long-distance couples. it lights up when you're facing each other.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/walsoup/discord-mcp"><strong>discord-mcp</strong></a></td>
+<td align="left">an mcp server so an ai can read and talk in discord.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/walsoup/DirectMoutamadris"><strong>DirectMoutamadris</strong></a></td>
+<td align="left">check your moroccan grades without waiting on the slow portal.</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align="center" valign="middle"><img alt="Deltarune Susie, Kris and Ralsei panic meme" src="https://media0.giphy.com/media/khJQfxDCOc0zklBGBu/giphy.gif" height="140"></td>
+</tr>
+</table>
 
 <br>
 
-<div align="center">
 
-<img alt="Deltarune Susie, Kris and Ralsei panic meme" src="https://media0.giphy.com/media/khJQfxDCOc0zklBGBu/giphy.gif" height="140">
-
-</div>
 
 <h2><img alt="04 / WHAT I WRITE IN" src="https://img.shields.io/badge/04-WHAT%20I%20WRITE%20IN-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
-| what | which |
-|:--|:--|
-| **languages** | ![kotlin](https://img.shields.io/badge/kotlin-1f0f14?style=flat-square&logo=kotlin&logoColor=e0526a) ![python](https://img.shields.io/badge/python-1f0f14?style=flat-square&logo=python&logoColor=e0526a) ![typescript](https://img.shields.io/badge/typescript-1f0f14?style=flat-square&logo=typescript&logoColor=e0526a) ![javascript](https://img.shields.io/badge/javascript-1f0f14?style=flat-square&logo=javascript&logoColor=e0526a) ![c++](https://img.shields.io/badge/c++-1f0f14?style=flat-square&logo=cplusplus&logoColor=e0526a) ![rust](https://img.shields.io/badge/rust-1f0f14?style=flat-square&logo=rust&logoColor=e0526a) |
-| **runs on** | ![android](https://img.shields.io/badge/android-1f0f14?style=flat-square&logo=android&logoColor=e0526a) ![windows](https://img.shields.io/badge/windows-1f0f14?style=flat-square) ![macos](https://img.shields.io/badge/macos-1f0f14?style=flat-square&logo=apple&logoColor=e0526a) ![linux](https://img.shields.io/badge/linux-1f0f14?style=flat-square&logo=linux&logoColor=e0526a) ![node.js](https://img.shields.io/badge/node.js-1f0f14?style=flat-square&logo=nodedotjs&logoColor=e0526a) |
-| **focus** | offline protocols, audio dsp, agentic tooling, mobile ux |
+<table>
+<tr>
+<td align="center" valign="middle"><img alt="Susie's Idea, Kris launched on a rocket" src="https://media0.giphy.com/media/gS86cQTSdUxcEvelqB/giphy.gif" height="190"></td>
+<td valign="middle">
+<table>
+<thead>
+<tr>
+<th align="left">what</th>
+<th align="left">which</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>languages</strong></td>
+<td align="left"><img alt="kotlin" src="https://img.shields.io/badge/kotlin-1f0f14?style=flat-square&amp;logo=kotlin&amp;logoColor=e0526a" /> <img alt="python" src="https://img.shields.io/badge/python-1f0f14?style=flat-square&amp;logo=python&amp;logoColor=e0526a" /> <img alt="typescript" src="https://img.shields.io/badge/typescript-1f0f14?style=flat-square&amp;logo=typescript&amp;logoColor=e0526a" /> <img alt="javascript" src="https://img.shields.io/badge/javascript-1f0f14?style=flat-square&amp;logo=javascript&amp;logoColor=e0526a" /> <img alt="c++" src="https://img.shields.io/badge/c++-1f0f14?style=flat-square&amp;logo=cplusplus&amp;logoColor=e0526a" /> <img alt="rust" src="https://img.shields.io/badge/rust-1f0f14?style=flat-square&amp;logo=rust&amp;logoColor=e0526a" /></td>
+</tr>
+<tr>
+<td align="left"><strong>runs on</strong></td>
+<td align="left"><img alt="android" src="https://img.shields.io/badge/android-1f0f14?style=flat-square&amp;logo=android&amp;logoColor=e0526a" /> <img alt="windows" src="https://img.shields.io/badge/windows-1f0f14?style=flat-square" /> <img alt="macos" src="https://img.shields.io/badge/macos-1f0f14?style=flat-square&amp;logo=apple&amp;logoColor=e0526a" /> <img alt="linux" src="https://img.shields.io/badge/linux-1f0f14?style=flat-square&amp;logo=linux&amp;logoColor=e0526a" /> <img alt="node.js" src="https://img.shields.io/badge/node.js-1f0f14?style=flat-square&amp;logo=nodedotjs&amp;logoColor=e0526a" /></td>
+</tr>
+<tr>
+<td align="left"><strong>focus</strong></td>
+<td align="left">offline protocols, audio dsp, agentic tooling, mobile ux</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
 
-<div align="center">
 
-<img alt="Susie's Idea, Kris launched on a rocket" src="https://media0.giphy.com/media/gS86cQTSdUxcEvelqB/giphy.gif" height="140">
-
-</div>
 
 <h2><img alt="05 / THE NUMBERS" src="https://img.shields.io/badge/05-THE%20NUMBERS-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
