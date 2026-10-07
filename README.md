@@ -1,6 +1,6 @@
 <div align="center">
 
-<img alt="Walid Elonk" src="./assets/header.svg" width="640">
+<img alt="Walid Elonok" src="./assets/header.svg" width="640">
 
 <br>
 
