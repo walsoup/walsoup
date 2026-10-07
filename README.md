@@ -71,3 +71,14 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 <img alt="soup is just the best driving force :3" src="./assets/footer.svg" width="640">
 
 </div>
+
+<div align="center">
+
+<img alt="Susie's Idea, Kris launched on a rocket" src="https://media0.giphy.com/media/gS86cQTSdUxcEvelqB/giphy.gif" height="160">
+<img alt="Deltarune Susie, Kris and Ralsei panic meme" src="https://media0.giphy.com/media/khJQfxDCOc0zklBGBu/giphy.gif" height="160">
+<img alt="Deltarune Susie talk portrait" src="https://media0.giphy.com/media/oiegnqx6PFrBR5Berq/giphy.gif" height="160">
+<img alt="Awkward Deltarune Susie" src="https://media0.giphy.com/media/NeIWSCqeNeJDD3UQh4/giphy.gif" height="160">
+<img alt="Deltarune Susie talk sprite" src="https://media0.giphy.com/media/WOz5DoUuN8qSh987AB/giphy.gif" height="160">
+<img alt="Susie's Idea text card" src="https://media0.giphy.com/media/LaZxW2zqktmReNNiFY/giphy.gif" height="160">
+
+</div>
