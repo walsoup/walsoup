@@ -1622,6 +1622,42 @@
       color: var(--color-text-heading);
     }
 
+    .project-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .project-item {
+      padding: 0.9rem 0;
+      border-top: 1px solid rgba(128, 128, 128, 0.25);
+    }
+
+    .project-item:first-child {
+      border-top: none;
+    }
+
+    .project-name {
+      font-weight: 700;
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .project-name:hover {
+      text-decoration: underline;
+    }
+
+    .project-desc {
+      margin-top: 0.25rem;
+      color: var(--color-text-main);
+    }
+
+    .project-meta {
+      margin-top: 0.15rem;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+
     .content-section p {
       color: var(--color-text-main);
     }
@@ -2360,6 +2396,7 @@
         aria-label="Main navigation">
         <a href="#intro" class="nav-link" id="intro-nav-link">Home</a>
         <a href="#bio" class="nav-link" id="bio-nav-link">Bio</a>
+        <a href="#projects" class="nav-link" id="projects-nav-link">Projects</a>
         <a href="#cat" class="nav-link" id="cat-nav-link">Cat</a>
         <a href="#photos" class="nav-link" id="photos-nav-link">Photos</a>
       </nav>
@@ -2473,6 +2510,55 @@
           </div>
         </div>
 
+        <div id="projects" class="content-section">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Projects</h2>
+          <p class="text-lg mb-4">stuff i build to kill time. all on <a class="project-name" href="https://github.com/walsoup" target="_blank" rel="noopener noreferrer">github</a>.</p>
+          <ul class="project-list" role="list">
+            <li class="project-item">
+              <a class="project-name" href="https://github.com/walsoup/ditto" target="_blank" rel="noopener noreferrer">ditto</a>
+              <p class="project-desc">record a voice note on android and it lands in whatever chat you're in. typing on glass sucks.</p>
+              <p class="project-meta">kotlin / alpha</p>
+            </li>
+            <li class="project-item">
+              <a class="project-name" href="https://github.com/walsoup/Fichegen" target="_blank" rel="noopener noreferrer">fichegen</a>
+              <p class="project-desc">lesson prep for teachers, written by an llm so you don't have to. native macos app, a windows build on its own branch, original python script in history.</p>
+              <p class="project-meta">python, macos</p>
+            </li>
+            <li class="project-item">
+              <a class="project-name" href="https://github.com/walsoup/intel-arc-llm" target="_blank" rel="noopener noreferrer">intel-arc-llm</a>
+              <p class="project-desc">local llm inference tuned for intel arc igpus: vulkan, dp4a, speculative decoding.</p>
+              <p class="project-meta">c++ / moving fast</p>
+            </li>
+            <li class="project-item">
+              <a class="project-name" href="https://github.com/walsoup/gemwallet" target="_blank" rel="noopener noreferrer">gemwallet</a>
+              <p class="project-desc">finance tracker for android. encrypted local db, no telemetry, works offline. optional api if you want sync.</p>
+              <p class="project-meta">kotlin / almost done</p>
+            </li>
+            <li class="project-item">
+              <a class="project-name" href="https://github.com/walsoup/agent-base" target="_blank" rel="noopener noreferrer">agent-base</a>
+              <p class="project-desc">a small agent loop with streaming, reasoning logs and human approval.</p>
+              <p class="project-meta">typescript / shipping</p>
+            </li>
+            <li class="project-item">
+              <a class="project-name" href="https://github.com/walsoup/bitnet" target="_blank" rel="noopener noreferrer">bitnet</a>
+              <p class="project-desc">android bluetooth mesh, plus internet sharing over bluetooth without root. it will break on you, that's the honest status.</p>
+              <p class="project-meta">android / unfinished</p>
+            </li>
+            <li class="project-item">
+              <a class="project-name" href="https://github.com/walsoup/tether-compass" target="_blank" rel="noopener noreferrer">tether-compass</a>
+              <p class="project-desc">a web compass for long-distance couples. it lights up when you're facing each other.</p>
+            </li>
+            <li class="project-item">
+              <a class="project-name" href="https://github.com/walsoup/discord-mcp" target="_blank" rel="noopener noreferrer">discord-mcp</a>
+              <p class="project-desc">an mcp server so an ai can read and talk in discord.</p>
+            </li>
+            <li class="project-item">
+              <a class="project-name" href="https://github.com/walsoup/DirectMoutamadris" target="_blank" rel="noopener noreferrer">DirectMoutamadris</a>
+              <p class="project-desc">check your moroccan grades without waiting on the slow portal.</p>
+            </li>
+          </ul>
+        </div>
+
         <div id="cat" class="content-section">
           <h2 class="text-4xl md:text-5xl font-bold mb-4">Cats</h2>
           <p class="text-lg mb-4">some cat pics I took</p>
@@ -2530,7 +2616,7 @@
       const Jukebox = (() => {
 
         // ─── Config ────────────────────────────────────────────────────────────────
-        const SECTION_MAP = { intro: 'home', bio: 'bio', cat: 'cats', photos: 'photos' };
+        const SECTION_MAP = { intro: 'home', bio: 'bio', projects: 'bio', cat: 'cats', photos: 'photos' };
         const syncChannelName = 'wal-jukebox-sync-v3';
         const syncStorageKey  = 'wal-jukebox-sync-state-v3';
         const BASE        = 'audio/tracks/';
@@ -3826,6 +3912,7 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
       const sections = {
         intro: document.getElementById('intro'),
         bio: document.getElementById('bio'),
+        projects: document.getElementById('projects'),
         cat: document.getElementById('cat'),
         photos: document.getElementById('photos'),
       };
