@@ -43,11 +43,8 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 
 <br>
 
-<h2><img alt="03 / SMALLER STUFF" src="https://img.shields.io/badge/03-SMALLER%20STUFF-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
+<h2><img align="middle" alt="03 / SMALLER STUFF" src="https://img.shields.io/badge/03-SMALLER%20STUFF-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"> &nbsp; <img align="middle" alt="Deltarune Susie, Kris and Ralsei panic meme" src="https://media0.giphy.com/media/khJQfxDCOc0zklBGBu/giphy.gif" height="90"></h2>
 
-<table>
-<tr>
-<td valign="middle">
 <table>
 <thead>
 <tr>
@@ -70,21 +67,11 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 </tr>
 </tbody>
 </table>
-</td>
-<td align="center" valign="middle"><img alt="Deltarune Susie, Kris and Ralsei panic meme" src="https://media0.giphy.com/media/khJQfxDCOc0zklBGBu/giphy.gif" height="140"></td>
-</tr>
-</table>
 
 <br>
 
+<h2><img align="middle" alt="04 / WHAT I WRITE IN" src="https://img.shields.io/badge/04-WHAT%20I%20WRITE%20IN-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"> &nbsp; <img align="middle" alt="Susie's Idea, Kris launched on a rocket" src="https://media0.giphy.com/media/gS86cQTSdUxcEvelqB/giphy.gif" height="120"></h2>
 
-
-<h2><img alt="04 / WHAT I WRITE IN" src="https://img.shields.io/badge/04-WHAT%20I%20WRITE%20IN-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
-
-<table>
-<tr>
-<td align="center" valign="middle"><img alt="Susie's Idea, Kris launched on a rocket" src="https://media0.giphy.com/media/gS86cQTSdUxcEvelqB/giphy.gif" height="190"></td>
-<td valign="middle">
 <table>
 <thead>
 <tr>
@@ -107,11 +94,8 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 </tr>
 </tbody>
 </table>
-</td>
-</tr>
-</table>
 
-
+<br>
 
 <h2><img alt="05 / THE NUMBERS" src="https://img.shields.io/badge/05-THE%20NUMBERS-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
