@@ -8,7 +8,9 @@
 <a href="mailto:walidelonk@gmail.com"><img alt="email" src="https://img.shields.io/badge/mail-walidelonk@gmail.com-e0526a?style=flat-square&labelColor=1f0f14&logo=gmail&logoColor=e0526a"></a>
 <img alt="cs student" src="https://img.shields.io/badge/cs_student-fsr-e0526a?style=flat-square&labelColor=1f0f14">
 
-<br><br>
+<br>
+
+[projects](#projects) · [smaller stuff](#smaller-stuff) · [stack](#stack) · [numbers](#numbers)
 
 *"every elegant solution eventually creates a new, much worse problem."*
 
@@ -28,6 +30,8 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 
 </div>
 
+<a name="projects"></a>
+
 <h2><img alt="02 / WHAT I'M BUILDING" src="https://img.shields.io/badge/02-WHAT%20I%27M%20BUILDING-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
 | project | what it does | stack | status |
@@ -42,6 +46,8 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 > bitnet will break on you. that's the honest status.
 
 <br>
+
+<a name="smaller-stuff"></a>
 
 <h2><img align="middle" alt="03 / SMALLER STUFF" src="https://img.shields.io/badge/03-SMALLER%20STUFF-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"> &nbsp; <img align="middle" alt="Deltarune Susie, Kris and Ralsei panic meme" src="https://media0.giphy.com/media/khJQfxDCOc0zklBGBu/giphy.gif" height="90"></h2>
 
@@ -70,6 +76,8 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 
 <br>
 
+<a name="stack"></a>
+
 <h2><img align="middle" alt="04 / WHAT I WRITE IN" src="https://img.shields.io/badge/04-WHAT%20I%20WRITE%20IN-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"> &nbsp; <img align="middle" alt="Susie's Idea, Kris launched on a rocket" src="https://media0.giphy.com/media/gS86cQTSdUxcEvelqB/giphy.gif" height="120"></h2>
 
 <table>
@@ -96,6 +104,8 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 </table>
 
 <br>
+
+<a name="numbers"></a>
 
 <h2><img alt="05 / THE NUMBERS" src="https://img.shields.io/badge/05-THE%20NUMBERS-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
