@@ -927,26 +927,26 @@
     }
 
     body.theme-banana {
-      --panel-bg: #FEFBDF;
-      --panel-border: 2px solid #46483B;
-      --panel-shadow: 5px 5px 0 #46483B;
-      --panel-radius: 28px;
+      --panel-bg: #F4F8B6;
+      --panel-border: 1px solid transparent;
+      --panel-shadow: 0 8px 32px rgba(134, 185, 16, 0.15);
+      --panel-radius: 36px;
       --panel-text: #46483B;
       --panel-muted: #606253;
-      --panel-rule: rgba(70, 72, 59, 0.35);
-      --chip-bg: #E8ED95;
-      --chip-border: 1.5px solid #46483B;
+      --panel-rule: rgba(134, 185, 16, 0.3);
+      --chip-bg: rgba(134, 185, 16, 0.14);
+      --chip-border: 1px solid transparent;
       --btn-bg: #C4EE5B;
       --btn-bg-hover: #A7D142;
       --btn-text: #121F00;
-      --btn-border: 1.5px solid #46483B;
-      --btn-shadow: 2px 2px 0 #46483B;
-      --btn-shadow-hover: 3px 3px 0 #46483B;
-      --btn2-bg: #FFFFFF;
-      --btn2-bg-hover: #F0F0D8;
+      --btn-border: 1px solid transparent;
+      --btn-shadow: 0 4px 12px rgba(134, 185, 16, 0.2);
+      --btn-shadow-hover: 0 6px 16px rgba(134, 185, 16, 0.28);
+      --btn2-bg: rgba(134, 185, 16, 0.14);
+      --btn2-bg-hover: rgba(134, 185, 16, 0.26);
       --btn2-text: #46483B;
-      --btn2-border: 1.5px solid #46483B;
-      --backdrop: rgba(70, 72, 59, 0.35);
+      --btn2-border: 1px solid transparent;
+      --backdrop: rgba(70, 72, 59, 0.28);
     }
 
     body.theme-dark {
@@ -994,7 +994,7 @@
       transition: opacity 0.3s ease, transform 0.2s ease;
       white-space: nowrap;
     }
-    body.theme-banana .wal-bottom-info { border-width: 1.5px; box-shadow: 2px 2px 0 #46483B; }
+    body.theme-banana .wal-bottom-info { background: var(--audio-btn-bg); border: 1px solid var(--audio-btn-border); color: var(--audio-btn-color); box-shadow: var(--audio-btn-shadow); }
     .wal-bottom-info:hover,
     .wal-bottom-info:focus-visible,
     .wal-bottom-info.is-hovered {
@@ -1573,6 +1573,7 @@
       box-shadow: var(--panel-shadow);
       color: var(--panel-text);
     }
+    body.theme-banana .email-popover-inner { background: rgba(254, 251, 223, 0.75); box-shadow: none; }
     .email-popover-label {
       font-size: 0.72rem;
       text-transform: uppercase;
@@ -4789,10 +4790,6 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
         ctx.closePath();
         ctx.fillStyle = c.accent;
         ctx.fill();
-        ctx.lineWidth = 3;
-        ctx.lineJoin = 'round';
-        ctx.strokeStyle = c.ink;
-        ctx.stroke();
         ctx.beginPath();
         ctx.ellipse(bx, by + 1, bw / 2 - 5, 5, 0, 0, Math.PI * 2);
         ctx.fillStyle = '#e0703a';
