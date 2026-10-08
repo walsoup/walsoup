@@ -66,6 +66,12 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 
 > bitnet will break on you. that's the honest status.
 
+<div align="center">
+
+<img alt="Kris and Susie in a rotoscoped Deltarune walk meme" src="https://static.klipy.com/ii/4e7bea9f7a3371424e6c16ebc93252fe/71/b0/XMVEh1UvO6m2iP.gif" width="228">
+
+</div>
+
 <br>
 
 <a name="smaller-stuff"></a>
