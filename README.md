@@ -34,14 +34,35 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 
 <h2><img alt="02 / WHAT I'M BUILDING" src="https://img.shields.io/badge/02-WHAT%20I%27M%20BUILDING-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></h2>
 
-| project | what it does | stack | status |
-|:--|:--|:--|:--|
-| [**ditto**](https://github.com/walsoup/ditto) | record a voice note on android and it lands in whatever chat you're in. typing on glass sucks. | ![kotlin](https://img.shields.io/badge/kotlin-1f0f14?style=flat-square&logo=kotlin&logoColor=e0526a) | ![alpha](https://img.shields.io/badge/alpha-b87a8f?style=flat-square) |
-| [**fichegen**](https://github.com/walsoup/Fichegen) | lesson prep for teachers, written by an llm so you don't have to. native macos app on `main`, a [windows build](https://github.com/walsoup/Fichegen/tree/windows-native) on its own branch, original python script in history. | ![python](https://img.shields.io/badge/python-1f0f14?style=flat-square&logo=python&logoColor=e0526a) ![macos](https://img.shields.io/badge/macos-1f0f14?style=flat-square&logo=apple&logoColor=e0526a) |  |
-| [**intel-arc-llm**](https://github.com/walsoup/intel-arc-llm) | local llm inference tuned for intel arc igpus: vulkan, dp4a, speculative decoding. | ![c++](https://img.shields.io/badge/c++-1f0f14?style=flat-square&logo=cplusplus&logoColor=e0526a) | ![moving fast](https://img.shields.io/badge/moving_fast-e0b94a?style=flat-square) |
-| [**gemwallet**](https://github.com/walsoup/gemwallet) | finance tracker for android. encrypted local db, no telemetry, works offline. optional api if you want sync. | ![kotlin](https://img.shields.io/badge/kotlin-1f0f14?style=flat-square&logo=kotlin&logoColor=e0526a) | ![almost done](https://img.shields.io/badge/almost_done-8fc96a?style=flat-square) |
-| [**agent-base**](https://github.com/walsoup/agent-base) | a small agent loop with streaming, reasoning logs and human approval. | ![typescript](https://img.shields.io/badge/typescript-1f0f14?style=flat-square&logo=typescript&logoColor=e0526a) | ![shipping](https://img.shields.io/badge/shipping-79b38a?style=flat-square) |
-| [**bitnet**](https://github.com/walsoup/bitnet) | android bluetooth mesh, plus internet sharing over bluetooth without root. | ![android](https://img.shields.io/badge/android-1f0f14?style=flat-square&logo=android&logoColor=e0526a) | ![unfinished](https://img.shields.io/badge/unfinished-c64750?style=flat-square) |
+<table>
+<thead><tr><th align="left">project</th><th align="left">what it does</th></tr></thead>
+<tbody>
+<tr>
+<td valign="top"><a href="https://github.com/walsoup/ditto"><strong>ditto</strong></a></td>
+<td>record a voice note on android and it lands in whatever chat you're in. typing on glass sucks.<br><br><img alt="kotlin" src="https://img.shields.io/badge/kotlin-1f0f14?style=flat-square&amp;logo=kotlin&amp;logoColor=e0526a"> &nbsp; <img alt="alpha" src="https://img.shields.io/badge/alpha-b87a8f?style=flat-square"></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/walsoup/Fichegen"><strong>fichegen</strong></a></td>
+<td>lesson prep for teachers, written by an llm so you don't have to. native macos app on <code>main</code>, a <a href="https://github.com/walsoup/Fichegen/tree/windows-native">windows build</a> on its own branch, original python script in history.<br><br><img alt="python" src="https://img.shields.io/badge/python-1f0f14?style=flat-square&amp;logo=python&amp;logoColor=e0526a"> <img alt="macos" src="https://img.shields.io/badge/macos-1f0f14?style=flat-square&amp;logo=apple&amp;logoColor=e0526a"></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/walsoup/intel-arc-llm"><strong>intel-arc-llm</strong></a></td>
+<td>local llm inference tuned for intel arc igpus: vulkan, dp4a, speculative decoding.<br><br><img alt="c++" src="https://img.shields.io/badge/c++-1f0f14?style=flat-square&amp;logo=cplusplus&amp;logoColor=e0526a"> &nbsp; <img alt="moving fast" src="https://img.shields.io/badge/moving_fast-e0b94a?style=flat-square"></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/walsoup/gemwallet"><strong>gemwallet</strong></a></td>
+<td>finance tracker for android. encrypted local db, no telemetry, works offline. optional api if you want sync.<br><br><img alt="kotlin" src="https://img.shields.io/badge/kotlin-1f0f14?style=flat-square&amp;logo=kotlin&amp;logoColor=e0526a"> &nbsp; <img alt="almost done" src="https://img.shields.io/badge/almost_done-8fc96a?style=flat-square"></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/walsoup/agent-base"><strong>agent-base</strong></a></td>
+<td>a small agent loop with streaming, reasoning logs and human approval.<br><br><img alt="typescript" src="https://img.shields.io/badge/typescript-1f0f14?style=flat-square&amp;logo=typescript&amp;logoColor=e0526a"> &nbsp; <img alt="shipping" src="https://img.shields.io/badge/shipping-79b38a?style=flat-square"></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/walsoup/bitnet"><strong>bitnet</strong></a></td>
+<td>android bluetooth mesh, plus internet sharing over bluetooth without root.<br><br><img alt="android" src="https://img.shields.io/badge/android-1f0f14?style=flat-square&amp;logo=android&amp;logoColor=e0526a"> &nbsp; <img alt="unfinished" src="https://img.shields.io/badge/unfinished-c64750?style=flat-square"></td>
+</tr>
+</tbody>
+</table>
 
 > bitnet will break on you. that's the honest status.
 
