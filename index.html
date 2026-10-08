@@ -899,9 +899,76 @@
     }
 
     /* --------------------------------------------------------------------------
-      BOTTOM LEFT FOOTER INFO (DISCREET WATERMARK)
+      SHARED PANEL SURFACE (email card, credits, soup game)
+      Follows the active theme so these match the rest of the site.
       --------------------------------------------------------------------------
       */
+    :root {
+      --panel-bg: rgba(255, 255, 255, 0.86);
+      --panel-border: 1px solid rgba(255, 255, 255, 0.7);
+      --panel-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+      --panel-radius: 24px;
+      --panel-text: #1f2937;
+      --panel-muted: #4b5563;
+      --panel-rule: rgba(0, 0, 0, 0.1);
+      --chip-bg: rgba(0, 0, 0, 0.05);
+      --chip-border: 1px solid rgba(0, 0, 0, 0.08);
+      --btn-bg: var(--color-accent);
+      --btn-bg-hover: var(--color-accent-hover);
+      --btn-text: #ffffff;
+      --btn-border: 1px solid transparent;
+      --btn-shadow: none;
+      --btn-shadow-hover: none;
+      --btn2-bg: rgba(0, 0, 0, 0.05);
+      --btn2-bg-hover: rgba(0, 0, 0, 0.09);
+      --btn2-text: #1f2937;
+      --btn2-border: 1px solid rgba(0, 0, 0, 0.08);
+      --backdrop: rgba(20, 20, 20, 0.45);
+    }
+
+    body.theme-banana {
+      --panel-bg: #FEFBDF;
+      --panel-border: 2px solid #46483B;
+      --panel-shadow: 5px 5px 0 #46483B;
+      --panel-radius: 28px;
+      --panel-text: #46483B;
+      --panel-muted: #606253;
+      --panel-rule: rgba(70, 72, 59, 0.35);
+      --chip-bg: #E8ED95;
+      --chip-border: 1.5px solid #46483B;
+      --btn-bg: #C4EE5B;
+      --btn-bg-hover: #A7D142;
+      --btn-text: #121F00;
+      --btn-border: 1.5px solid #46483B;
+      --btn-shadow: 2px 2px 0 #46483B;
+      --btn-shadow-hover: 3px 3px 0 #46483B;
+      --btn2-bg: #FFFFFF;
+      --btn2-bg-hover: #F0F0D8;
+      --btn2-text: #46483B;
+      --btn2-border: 1.5px solid #46483B;
+      --backdrop: rgba(70, 72, 59, 0.35);
+    }
+
+    body.theme-dark {
+      --btn-bg: var(--color-accent);
+      --btn-bg-hover: var(--color-accent-hover);
+      --panel-bg: rgba(22, 11, 38, 0.88);
+      --panel-border: 1px solid rgba(180, 100, 200, 0.35);
+      --panel-shadow: 0 14px 40px rgba(8, 2, 18, 0.6), inset 0 1px 1px rgba(200, 170, 220, 0.25);
+      --panel-text: #ede9f6;
+      --panel-muted: #b8a4cc;
+      --panel-rule: rgba(255, 255, 255, 0.12);
+      --chip-bg: rgba(255, 255, 255, 0.08);
+      --chip-border: 1px solid rgba(255, 255, 255, 0.12);
+      --btn-text: #1a0a2a;
+      --btn2-bg: rgba(255, 255, 255, 0.08);
+      --btn2-bg-hover: rgba(255, 255, 255, 0.15);
+      --btn2-text: #ede9f6;
+      --btn2-border: 1px solid rgba(255, 255, 255, 0.14);
+      --backdrop: rgba(8, 2, 18, 0.6);
+    }
+
+    /* Credits button (bottom left) */
     .wal-bottom-info {
       position: fixed;
       left: 16px;
@@ -912,37 +979,30 @@
       gap: 6px;
       padding: 6px 12px;
       border-radius: 9999px;
-      background: rgba(18, 18, 18, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      color: #ffffff;
+      background: var(--panel-bg);
+      border: var(--panel-border);
+      color: var(--panel-text);
       font-size: 0.74rem;
       line-height: 1.4;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.02em;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      opacity: 0.35;
-      pointer-events: auto;
-      user-select: none;
+      box-shadow: var(--btn-shadow);
+      opacity: 0.55;
       cursor: pointer;
-      transition: opacity 0.35s ease, transform 0.25s ease, background 0.2s ease, border-color 0.2s ease;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: opacity 0.3s ease, transform 0.2s ease;
       white-space: nowrap;
     }
-
+    body.theme-banana .wal-bottom-info { border-width: 1.5px; box-shadow: 2px 2px 0 #46483B; }
     .wal-bottom-info:hover,
     .wal-bottom-info:focus-visible,
     .wal-bottom-info.is-hovered {
-      opacity: 0.95;
+      opacity: 1;
       transform: translateY(-2px);
-      background: rgba(30, 30, 30, 0.95);
-      border-color: rgba(255, 255, 255, 0.3);
     }
 
-    /* --------------------------------------------------------------------------
-      COPYRIGHT MODAL
-      --------------------------------------------------------------------------
-      */
+    /* Modal shell (credits and game) */
     .copyright-modal {
       position: fixed;
       inset: 0;
@@ -955,107 +1015,177 @@
       visibility: hidden;
       transition: opacity 0.25s ease, visibility 0.25s ease;
     }
-    .copyright-modal.active {
-      opacity: 1;
-      visibility: visible;
-    }
+    .copyright-modal.active { opacity: 1; visibility: visible; }
     .copyright-modal-backdrop {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.65);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: var(--backdrop);
     }
     .copyright-modal-dialog {
       position: relative;
       z-index: 1;
-      max-width: 460px;
+      max-width: 440px;
       width: 100%;
-      background: rgba(22, 22, 26, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      color: #e5e7eb;
-      padding: 24px;
-      transform: translateY(12px) scale(0.96);
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      background: var(--panel-bg);
+      border: var(--panel-border);
+      border-radius: var(--panel-radius);
+      box-shadow: var(--panel-shadow);
+      color: var(--panel-text);
+      padding: 22px 24px 24px;
+      transform: translateY(12px) scale(0.97);
       transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .copyright-modal.active .copyright-modal-dialog {
-      transform: translateY(0) scale(1);
-    }
+    .copyright-modal.active .copyright-modal-dialog { transform: translateY(0) scale(1); }
     .copyright-modal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 14px;
       padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid var(--panel-rule);
     }
     .copyright-modal-title {
-      font-size: 1.15rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--color-text-heading);
       margin: 0;
       letter-spacing: -0.01em;
     }
     .copyright-modal-close {
-      background: transparent;
-      border: none;
-      color: #9ca3af;
-      font-size: 1.5rem;
+      background: var(--btn2-bg);
+      border: var(--btn2-border);
+      color: var(--btn2-text);
+      font-size: 1.25rem;
       cursor: pointer;
       line-height: 1;
-      padding: 4px 8px;
-      border-radius: 8px;
-      transition: color 0.15s ease, background 0.15s ease;
+      width: 32px;
+      height: 32px;
+      border-radius: 9999px;
+      transition: background 0.15s ease;
     }
-    .copyright-modal-close:hover {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.1);
-    }
+    .copyright-modal-close:hover { background: var(--btn2-bg-hover); }
     .copyright-modal-body h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #fb923c;
-      margin: 0 0 6px 0;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--panel-muted);
+      margin: 0 0 8px 0;
     }
     .copyright-modal-body p {
-      font-size: 0.85rem;
-      line-height: 1.5;
-      color: #d1d5db;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--panel-text);
       margin: 0 0 8px 0;
     }
     .copyright-modal-body a {
-      color: #fb923c;
-      text-decoration: underline;
+      color: var(--color-accent);
+      font-weight: 700;
+      text-decoration: none;
     }
+    body.theme-banana .copyright-modal-body a { color: #006874; }
+    .copyright-modal-body a:hover { text-decoration: underline; }
     .credit-block .track-list {
       list-style: none;
       padding: 0;
-      margin: 8px 0;
-      font-size: 0.8rem;
-      color: #9ca3af;
+      margin: 10px 0;
       display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 6px;
     }
     .credit-block .track-list li {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 5px 8px;
-      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--chip-bg);
+      border: var(--chip-border);
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      color: var(--panel-text);
     }
+    .credit-block .track-list li span { font-weight: 700; }
     .credit-block .licensing-note {
-      font-size: 0.78rem;
-      color: #9ca3af;
-      font-style: italic;
-      margin-top: 6px;
+      font-size: 0.78rem !important;
+      color: var(--panel-muted) !important;
+      margin-top: 8px !important;
     }
-    .credit-divider {
-      height: 1px;
-      background: rgba(255, 255, 255, 0.08);
-      margin: 14px 0;
+    .credit-divider { height: 1px; background: var(--panel-rule); margin: 16px 0; }
+
+    /* Soup game */
+    .soup-game-dialog { max-width: 400px; }
+    .soup-game-hud {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--panel-muted);
+      margin-bottom: 8px;
+    }
+    .soup-game-hud b { color: var(--panel-text); }
+    .soup-game-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 11;
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--chip-bg);
+      border: var(--chip-border);
+    }
+    #soup-game-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+      display: block;
+    }
+    .soup-game-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+      text-align: center;
+      background: var(--panel-bg);
+    }
+    .soup-game-overlay[hidden] { display: none; }
+    .soup-game-overlay .sg-big {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--color-text-heading);
+    }
+    .soup-game-overlay p { margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--panel-text); }
+    .soup-game-overlay .sg-sub { font-size: 0.8rem; color: var(--panel-muted); }
+    .sg-shelf { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; max-width: 100%; }
+    .sg-shelf svg { width: 26px; height: 26px; color: var(--color-accent); fill: none; stroke: currentColor; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    .soup-game-hint { font-size: 0.75rem !important; color: var(--panel-muted) !important; margin: 8px 0 0 0 !important; text-align: center; }
+
+    /* Trophies added to the background */
+    .bg-trophy {
+      position: absolute;
+      --tsz: clamp(56px, 7vw, 96px);
+      width: var(--tsz);
+      height: var(--tsz);
+      color: var(--color-accent);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: 1;
+      animation: trophyIn 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+    }
+    @keyframes trophyIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.6) rotate(var(--rot, 0deg)); }
+      to { opacity: 0.6; transform: translateY(0) scale(1) rotate(var(--rot, 0deg)); }
     }
 
     /* --------------------------------------------------------------------------
@@ -1405,23 +1535,17 @@
     }
 
     /* --------------------------------------------------------------------------
-      EMAIL INTERACTIVE TAB
+      EMAIL CARD
       --------------------------------------------------------------------------
       */
     #social-email[aria-expanded="true"] {
       color: var(--color-accent);
       transform: scale(1.2);
     }
-
-    body.theme-banana #social-email[aria-expanded="true"] {
-      color: #121F00;
-      transform: scale(1.25) rotate(-6deg);
-    }
-
+    body.theme-banana #social-email[aria-expanded="true"] { color: #121F00; transform: scale(1.25) rotate(-6deg); }
     body.theme-dark #social-email[aria-expanded="true"] {
       color: #f472b6;
       filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.7));
-      transform: scale(1.2);
     }
 
     .email-popover {
@@ -1429,177 +1553,81 @@
       opacity: 0;
       overflow: hidden;
       margin-top: 0;
-      transition: max-height 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
-                  opacity 0.22s ease,
-                  margin-top 0.22s ease;
+      padding: 0 6px 6px 0;
+      transition: max-height 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.22s ease, margin-top 0.22s ease;
       pointer-events: none;
     }
-
-    .email-popover.active {
-      max-height: 120px;
-      opacity: 1;
-      margin-top: 16px;
-      pointer-events: auto;
-    }
+    .email-popover.active { max-height: 220px; opacity: 1; margin-top: 18px; pointer-events: auto; }
 
     .email-popover-inner {
-      display: inline-flex;
-      flex-wrap: wrap;
-      align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       gap: 10px;
-      padding: 8px 12px;
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      max-width: 100%;
+      width: 100%;
+      max-width: 340px;
+      padding: 14px 16px 16px;
+      border-radius: calc(var(--panel-radius) - 6px);
+      background: var(--panel-bg);
+      border: var(--panel-border);
+      box-shadow: var(--panel-shadow);
+      color: var(--panel-text);
     }
-
+    .email-popover-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--panel-muted);
+    }
     .email-popover-email {
-      font-size: 0.8rem;
+      width: 100%;
+      font-size: 0.88rem;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-weight: 500;
-      color: var(--color-text-main);
-      padding: 4px 10px;
-      border-radius: 9999px;
-      background: rgba(0, 0, 0, 0.04);
+      font-weight: 600;
+      color: var(--panel-text);
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: var(--chip-bg);
+      border: var(--chip-border);
+      overflow-wrap: anywhere;
       user-select: all;
     }
-
-    .email-popover-actions {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
+    .email-popover-actions { display: flex; gap: 8px; }
     .email-popover-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
-      padding: 6px 14px;
-      font-size: 0.78rem;
-      font-weight: 600;
+      gap: 6px;
+      padding: 7px 16px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: inherit;
       border-radius: 9999px;
       text-decoration: none;
       cursor: pointer;
       user-select: none;
       -webkit-user-select: none;
       transition: all 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
-      border: 1px solid transparent;
       outline: none;
       white-space: nowrap;
     }
-
-    .email-popover-btn:active {
-      transform: translateY(1.5px) scale(0.96) !important;
-    }
-
+    .email-popover-btn:active { transform: translateY(1.5px) scale(0.97) !important; }
     .email-popover-btn-primary {
-      background: var(--color-accent);
-      color: #ffffff !important;
+      background: var(--btn-bg);
+      color: var(--btn-text) !important;
+      border: var(--btn-border);
+      box-shadow: var(--btn-shadow);
     }
-
-    .email-popover-btn-primary:hover {
-      background: var(--color-accent-hover);
-      transform: translateY(-1px);
-    }
-
+    .email-popover-btn-primary:hover { background: var(--btn-bg-hover); transform: translate(-1px, -1px); box-shadow: var(--btn-shadow-hover); }
     .email-popover-btn-secondary {
-      background: rgba(0, 0, 0, 0.05);
-      color: var(--color-text-main);
-      border-color: rgba(0, 0, 0, 0.08);
+      background: var(--btn2-bg);
+      color: var(--btn2-text);
+      border: var(--btn2-border);
+      box-shadow: var(--btn-shadow);
     }
-
-    .email-popover-btn-secondary:hover {
-      background: rgba(0, 0, 0, 0.09);
-      transform: translateY(-1px);
-    }
-
-    .email-btn-icon {
-      width: 13px;
-      height: 13px;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
-    /* Dark Theme Overrides */
-    body.theme-dark .email-popover-inner {
-      background: rgba(22, 11, 38, 0.85);
-      border: 1px solid rgba(180, 100, 200, 0.35);
-      box-shadow: 0 10px 30px rgba(8, 2, 18, 0.6), inset 0 1px 1px rgba(200, 170, 220, 0.3);
-    }
-
-    body.theme-dark .email-popover-email {
-      background: rgba(255, 255, 255, 0.08);
-      color: #ede9f6;
-    }
-
-    body.theme-dark .email-popover-btn-primary {
-      background: #e879a8;
-      color: #120618 !important;
-    }
-
-    body.theme-dark .email-popover-btn-primary:hover {
-      background: #f472b6;
-      box-shadow: 0 0 14px rgba(232, 121, 168, 0.5);
-    }
-
-    body.theme-dark .email-popover-btn-secondary {
-      background: rgba(255, 255, 255, 0.08);
-      color: #ede9f6;
-      border-color: rgba(180, 100, 200, 0.25);
-    }
-
-    body.theme-dark .email-popover-btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.14);
-      color: #ffffff;
-    }
-
-    /* Banana Theme Overrides */
-    body.theme-banana .email-popover-inner {
-      background: #FEFBDF;
-      border: 2px solid #46483B;
-      box-shadow: 3px 3px 0px #46483B;
-      border-radius: 20px;
-    }
-
-    body.theme-banana .email-popover-email {
-      background: #E8ED95;
-      color: #46483B;
-      border: 1.5px solid #46483B;
-      font-weight: 600;
-    }
-
-    body.theme-banana .email-popover-btn-primary {
-      background: #C4EE5B;
-      color: #121F00 !important;
-      border: 1.5px solid #46483B;
-      box-shadow: 2px 2px 0px #46483B;
-      font-weight: 700;
-    }
-
-    body.theme-banana .email-popover-btn-primary:hover {
-      background: #A7D142;
-      transform: translate(-1px, -1px);
-      box-shadow: 3px 3px 0px #46483B;
-    }
-
-    body.theme-banana .email-popover-btn-secondary {
-      background: #FFFFFF;
-      color: #46483B;
-      border: 1.5px solid #46483B;
-      box-shadow: 2px 2px 0px #46483B;
-      font-weight: 700;
-    }
-
-    body.theme-banana .email-popover-btn-secondary:hover {
-      background: #F0F0D8;
-      transform: translate(-1px, -1px);
-      box-shadow: 3px 3px 0px #46483B;
-    }
+    .email-popover-btn-secondary:hover { background: var(--btn2-bg-hover); transform: translate(-1px, -1px); box-shadow: var(--btn-shadow-hover); }
+    .email-btn-icon { width: 13px; height: 13px; display: inline-block; flex-shrink: 0; }
 
     /* --------------------------------------------------------------------------
       CONTENT SECTION TRANSITIONS
@@ -1642,6 +1670,12 @@
       color: var(--color-accent);
       text-decoration: none;
     }
+
+
+    .bio-facts { margin: 0 0 1rem 0; display: grid; gap: 0.4rem; }
+    .bio-facts > div { display: flex; gap: 0.9rem; font-size: 0.95rem; }
+    .bio-facts dt { flex: 0 0 5.5rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.1em; padding-top: 0.2rem; }
+    .bio-facts dd { margin: 0; color: var(--color-text-main); }
 
     .project-name:hover {
       text-decoration: underline;
@@ -2365,27 +2399,52 @@
     <div class="copyright-modal-backdrop" id="copyright-modal-backdrop"></div>
     <div class="copyright-modal-dialog">
       <div class="copyright-modal-header">
-        <h3 id="copyright-modal-title" class="copyright-modal-title">Credits & Copyright</h3>
-        <button id="copyright-modal-close" class="copyright-modal-close" aria-label="Close modal">&times;</button>
+        <h3 id="copyright-modal-title" class="copyright-modal-title">Credits</h3>
+        <button id="copyright-modal-close" class="copyright-modal-close" aria-label="Close">&times;</button>
       </div>
       <div class="copyright-modal-body">
         <div class="credit-block">
-          <h4>🎵 Music Credits</h4>
-          <p>Background music composed by <strong>Toby Fox</strong> from <em>DELTARUNE</em> and <em>UNDERTALE</em>.</p>
+          <h4>Music</h4>
+          <p>Background music by <strong>Toby Fox</strong>, from <em>DELTARUNE</em> and <em>UNDERTALE</em>.</p>
           <ul class="track-list">
-            <li><strong>Home:</strong> <em>My Castle Town</em></li>
-            <li><strong>Bio:</strong> <em>After the Rain</em></li>
-            <li><strong>Cats:</strong> <em>Catswing</em></li>
-            <li><strong>Photos:</strong> <em>Flower Cafe</em></li>
+            <li><span>Home</span><em>My Castle Town</em></li>
+            <li><span>Bio, Projects</span><em>After the Rain</em></li>
+            <li><span>Cats</span><em>Catswing</em></li>
+            <li><span>Photos</span><em>Flower Cafe</em></li>
           </ul>
-          <p class="licensing-note">Soundtrack published &amp; licensed via <strong>Materia Collective LLC</strong> / <strong>Materia Music Inc.</strong> All rights reserved to their respective owners.</p>
+          <p class="licensing-note">Soundtrack published and licensed by Materia Collective LLC / Materia Music Inc. All rights belong to their owners.</p>
         </div>
         <div class="credit-divider"></div>
         <div class="credit-block">
-          <h4>💻 Website &amp; Design</h4>
-          <p>&copy; 2026 <strong>Walid Elonk</strong> (<a href="https://github.com/walsoup" target="_blank" rel="noopener noreferrer">@walsoup</a>). Built with love and soup.</p>
+          <h4>Site</h4>
+          <p>&copy; 2026 <strong>Walid Elonok</strong> (<a href="https://github.com/walsoup" target="_blank" rel="noopener noreferrer">@walsoup</a>). Source on <a href="https://github.com/walsoup/walsoup" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div id="soup-game-modal" class="copyright-modal" role="dialog" aria-modal="true" aria-labelledby="soup-game-title" hidden>
+    <div class="copyright-modal-backdrop" id="soup-game-backdrop"></div>
+    <div class="copyright-modal-dialog soup-game-dialog">
+      <div class="copyright-modal-header">
+        <h3 id="soup-game-title" class="copyright-modal-title">Catch the soup</h3>
+        <button id="soup-game-close" class="copyright-modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="soup-game-hud">
+        <span>Caught <b id="sg-caught">0</b> / <b id="sg-total">20</b></span>
+        <span>Trophies <b id="sg-trophy-count">0</b></span>
+      </div>
+      <div class="soup-game-stage" id="sg-stage">
+        <canvas id="soup-game-canvas" aria-label="Soup catching game"></canvas>
+        <div class="soup-game-overlay" id="sg-overlay">
+          <div class="sg-big" id="sg-result-big" hidden></div>
+          <p id="sg-message">20 drops of soup fall. Catch more than 60% in the bowl and a trophy goes on the background.</p>
+          <p class="sg-sub" id="sg-sub"></p>
+          <div class="sg-shelf" id="sg-shelf"></div>
+          <button type="button" id="sg-start" class="email-popover-btn email-popover-btn-primary">Start</button>
+        </div>
+      </div>
+      <p class="soup-game-hint">Drag, or use the arrow keys, to move the bowl.</p>
     </div>
   </div>
 
@@ -2464,6 +2523,7 @@
           <!--email_off-->
           <div id="email-popover" class="email-popover" role="region" aria-label="Email options" aria-hidden="true">
             <div class="email-popover-inner">
+              <span class="email-popover-label">Email</span>
               <span class="email-popover-email">walidelonk@gmail.com</span>
               <div class="email-popover-actions">
                 <button type="button" id="email-copy-action" class="email-popover-btn email-popover-btn-secondary" title="Copy email address">
@@ -2473,12 +2533,12 @@
                   </svg>
                   <span id="email-copy-text">Copy</span>
                 </button>
-                <a href="mailto:walidelonk@gmail.com" id="email-reach-action" class="email-popover-btn email-popover-btn-primary" title="Open mail app">
+                <a href="mailto:walidelonk@gmail.com" id="email-reach-action" class="email-popover-btn email-popover-btn-primary" title="Open your mail app">
                   <svg class="email-btn-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                   </svg>
-                  <span>Reach out</span>
+                  <span>Write</span>
                 </a>
               </div>
             </div>
@@ -2491,6 +2551,13 @@
           <p class="text-lg mb-4">Walid Elonok, 1st year SDIA at FSR.</p>
           <p class="text-lg mb-4">every elegant solution eventually creates a new, much worse problem.</p>
           <p class="text-lg mb-4">I like taking photos of cats (among other things), and building stuff to kill time</p>
+          <p class="text-lg mb-4">i build weird software to kill time, and sometimes it turns into something useful. mostly offline protocols, audio dsp, agentic tooling and mobile ux. <a class="project-name" href="#projects">projects</a>.</p>
+          <p class="text-lg mb-4">away from the keyboard: cats (i photograph them and collect cat facts), doodling, and soup. i make a lot of soup. yes, souphater.page. no, i don't hate soup.</p>
+          <dl class="bio-facts">
+            <div><dt>writes in</dt><dd>kotlin, python, typescript, javascript, c++, rust</dd></div>
+            <div><dt>runs on</dt><dd>android, windows, macos, linux, node.js</dd></div>
+            <div><dt>find me</dt><dd><a class="project-name" href="https://github.com/walsoup" target="_blank" rel="noopener noreferrer">github.com/walsoup</a></dd></div>
+          </dl>
 
           <div class="mt-6 max-w-lg mx-auto">
             <div id="bio-flower-card" class="polaroid-card p-3 rounded-2xl cursor-pointer" title="Click to view flower in lightbox">
@@ -2504,7 +2571,7 @@
             <ul class="vibe-list space-y-2 text-sm text-gray-400" role="list">
               <li class="vibe-item"><span class="vibe-marker font-mono">~</span> cats (animals in general)</li>
               <li class="vibe-item"><span class="vibe-marker font-mono">~</span> <span id="vibe-doodle-trigger" class="vibe-interactive-text" role="button" tabindex="0" title="Click to draw squiggles!">drawing &amp; doodling</span></li>
-              <li class="vibe-item"><span class="vibe-marker font-mono">~</span> <span id="vibe-soup" class="vibe-interactive-text vibe-soup-highlight" role="button" tabindex="0" title="Click for the ultimate stance on soup :3">soup</span></li>
+              <li class="vibe-item"><span class="vibe-marker font-mono">~</span> <span id="vibe-soup" class="vibe-interactive-text vibe-soup-highlight" role="button" tabindex="0" title="Play catch the soup">soup</span></li>
               <li class="vibe-item"><span class="vibe-marker font-mono">~</span> computers obviously</li>
             </ul>
           </div>
@@ -2981,7 +3048,7 @@
       }
 
       function triggerSoupAlert() {
-        showToast('Soup is the most beautiful creation of mankind, a beautiful tasty meal for any time of day, i hope whoever you are, that you love soup as much as i do :3', '🥣', 6500);
+        openSoupGame();
       }
 
       function triggerCatCouncil() {
@@ -3583,7 +3650,12 @@
         'reset': DEFAULT_UI_THEME
       };
 
+      // Phones stay on the banana theme. The glass themes are too heavy for them.
+      const mobileQuery = window.matchMedia('(max-width: 767px), (hover: none) and (pointer: coarse)');
+      const isMobileDevice = () => mobileQuery.matches;
+
       function setTheme(themeKey, save = true, quiet = false) {
+        if (isMobileDevice()) { themeKey = DEFAULT_UI_THEME; save = false; quiet = true; }
         // Remove all theme classes
         Object.values(THEMES).forEach(t => {
           if (t.class) body.classList.remove(t.class);
@@ -3626,7 +3698,7 @@
       let themeHintHideTimer = null;
 
       function showThemeHint() {
-        if (!themeHint) return;
+        if (!themeHint || isMobileDevice()) return;
 
         const lastShownRaw = sessionStorage.getItem(THEME_HINT_SESSION_KEY);
         const lastShown = lastShownRaw ? Number(lastShownRaw) : 0;
@@ -3657,7 +3729,7 @@
 
       // Theme initialization: load saved theme when valid, otherwise default.
       const savedTheme = localStorage.getItem('wal-theme');
-      if (savedTheme && THEMES[savedTheme]) {
+      if (!isMobileDevice() && savedTheme && THEMES[savedTheme]) {
         setTheme(savedTheme, false, true);
       } else {
         setTheme(DEFAULT_UI_THEME, false, true);
@@ -3743,6 +3815,7 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
       squiggleSvg.addEventListener('click', function (e) {
         e.preventDefault();
         hideThemeHint();
+        if (isMobileDevice()) return;
         squiggleClickCount++;
 
         if (squiggleClickTimer) clearTimeout(squiggleClickTimer);
@@ -3764,6 +3837,17 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
           squiggleSvg.click();
         }
       });
+
+      const onMobileChange = () => {
+        if (isMobileDevice()) {
+          setTheme(DEFAULT_UI_THEME);
+        } else {
+          const saved = localStorage.getItem('wal-theme');
+          setTheme(saved && THEMES[saved] ? saved : DEFAULT_UI_THEME, false, true);
+        }
+      };
+      if (mobileQuery.addEventListener) mobileQuery.addEventListener('change', onMobileChange);
+      else if (mobileQuery.addListener) mobileQuery.addListener(onMobileChange);
 
       // If they linger on the site for a bit, give a gentle hint on Home.
       setTimeout(() => {
@@ -4410,6 +4494,9 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
       const vibeSoup = document.getElementById('vibe-soup') || document.getElementById('chip-potato-soup');
       if (vibeSoup) {
         vibeSoup.addEventListener('click', triggerSoupAlert);
+        vibeSoup.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); triggerSoupAlert(); }
+        });
       }
 
       const vibeDoodle = document.getElementById('vibe-doodle-trigger') || document.getElementById('chip-doodle-mode');
@@ -4450,12 +4537,10 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
           if (e && e.stopPropagation) e.stopPropagation();
           const email = 'walidelonk@gmail.com';
           const onCopied = () => {
-            if (emailCopyText) emailCopyText.textContent = 'Copied! :3';
-            showToast('Copied walidelonk@gmail.com to clipboard! :3', '📬', 3500);
+            if (emailCopyText) emailCopyText.textContent = 'Copied';
             setTimeout(() => {
               if (emailCopyText) emailCopyText.textContent = 'Copy';
-              toggleEmailPopover(false);
-            }, 1200);
+            }, 1600);
           };
 
           if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -4507,7 +4592,7 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
           }
           if (onSuccess) onSuccess();
         } catch (_) {
-          showToast('walidelonk@gmail.com', '📬', 4500);
+          showToast('walidelonk@gmail.com', '', 4500);
         }
       }
 
@@ -4560,6 +4645,294 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
           closeCopyrightModal();
         }
       });
+
+      /*
+      ====================================================================
+      SOUP GAME + BACKGROUND TROPHIES
+      ====================================================================
+      */
+      const TROPHY_KEY = 'wal-trophies';
+      const TROPHY_SVGS = [
+        '<path d="M30 18H70V44C70 58 61 66 50 66C39 66 30 58 30 44Z"/><path d="M30 24H17C17 40 23 47 32 49"/><path d="M70 24H83C83 40 77 47 68 49"/><path d="M50 66V78"/><path d="M40 78H60V87H40Z"/>',
+        '<path d="M16 46H84C84 66 69 76 50 76C31 76 16 66 16 46Z"/><path d="M38 34C33 28 43 24 38 16"/><path d="M52 34C47 28 57 24 52 16"/><path d="M66 34C61 28 71 24 66 16"/><path d="M50 76V84"/><path d="M34 90H66"/>',
+        '<path d="M34 8L50 36L66 8"/><circle cx="50" cy="62" r="24"/><path d="M50 49L54.5 58.5L65 60L57.5 67L59.5 77.5L50 72.5L40.5 77.5L42.5 67L35 60L45.5 58.5Z"/>',
+        '<path d="M50 10L61.8 36.5L91 40L69.5 59.5L75.5 88L50 73.5L24.5 88L30.5 59.5L9 40L38.2 36.5Z"/>',
+        '<path d="M32 14H68C68 40 62 54 50 56C38 54 32 40 32 14Z"/><path d="M34 28H66"/><path d="M50 56V80"/><path d="M38 80H62"/><path d="M34 90H66"/>',
+        '<path d="M50 10L84 22V50C84 70 68 82 50 90C32 82 16 70 16 50V22Z"/><path d="M34 44L50 58L66 44"/>',
+        '<path d="M14 72L10 30L34 50L50 22L66 50L90 30L86 72Z"/><path d="M14 84H86"/>',
+        '<path d="M8 90H92"/><path d="M36 90V44H64V90"/><path d="M8 90V66H36"/><path d="M64 66H92V90"/><path d="M50 32V14"/><path d="M50 14H64L58 21L64 28H50"/>'
+      ];
+      const TROPHY_SLOTS = [
+        [3, 9, -10], [88, 8, 12], [2, 70, 9], [89, 72, -9], [46, 1, -4], [45, 90, 5],
+        [1, 38, -6], [92, 40, 8], [15, 91, 10], [75, 90, -12], [14, 1, 6], [74, 1, -8]
+      ];
+      const bgLayer = document.getElementById('bg-canvas-layer');
+
+      function getTrophyCount() {
+        const n = parseInt(localStorage.getItem(TROPHY_KEY) || '0', 10);
+        return Number.isFinite(n) && n > 0 ? n : 0;
+      }
+
+      function trophySvg(index, cls) {
+        const wrap = document.createElement('div');
+        wrap.innerHTML = '<svg viewBox="0 0 100 100" aria-hidden="true">' + TROPHY_SVGS[index % TROPHY_SVGS.length] + '</svg>';
+        const svg = wrap.firstChild;
+        if (cls) svg.setAttribute('class', cls);
+        return svg;
+      }
+
+      function placeTrophy(n, animate) {
+        if (!bgLayer) return;
+        const slot = TROPHY_SLOTS[n % TROPHY_SLOTS.length];
+        const lap = Math.floor(n / TROPHY_SLOTS.length);
+        const x = Math.min(100, Math.max(0, slot[0] + lap * 5));
+        const y = Math.min(100, Math.max(0, slot[1] + lap * 4));
+        const el = trophySvg(n, 'bg-trophy');
+        el.style.left = 'calc(' + x + '% - ' + (x / 100) + ' * var(--tsz))';
+        el.style.top = 'calc(' + y + '% - ' + (y / 100) + ' * var(--tsz))';
+        el.style.setProperty('--rot', slot[2] + 'deg');
+        el.style.transform = 'rotate(' + slot[2] + 'deg)';
+        if (!animate) el.style.animation = 'none';
+        bgLayer.appendChild(el);
+      }
+
+      (function restoreTrophies() {
+        const count = Math.min(getTrophyCount(), 48);
+        for (let i = 0; i < count; i++) placeTrophy(i, false);
+      })();
+
+      const sgModal = document.getElementById('soup-game-modal');
+      const sgCanvas = document.getElementById('soup-game-canvas');
+      const sgOverlay = document.getElementById('sg-overlay');
+      const sgMessage = document.getElementById('sg-message');
+      const sgSub = document.getElementById('sg-sub');
+      const sgBig = document.getElementById('sg-result-big');
+      const sgShelf = document.getElementById('sg-shelf');
+      const sgStart = document.getElementById('sg-start');
+      const sgCaughtEl = document.getElementById('sg-caught');
+      const sgTotalEl = document.getElementById('sg-total');
+      const sgTrophyEl = document.getElementById('sg-trophy-count');
+      const sgCtx = sgCanvas ? sgCanvas.getContext('2d') : null;
+
+      const SG = {
+        W: 360, H: 440, total: 20, bowlW: 86,
+        running: false, raf: 0, last: 0, nextSpawn: 0,
+        drops: [], spawned: 0, resolved: 0, caught: 0,
+        bowlX: 180, targetX: 180, bump: 0, left: false, right: false
+      };
+
+      function sgSetupCanvas() {
+        if (!sgCanvas || !sgCtx) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        sgCanvas.width = SG.W * dpr;
+        sgCanvas.height = SG.H * dpr;
+        sgCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function sgMessageFor(pct, caught) {
+        if (pct === 100) return 'Not a drop lost.';
+        if (caught / SG.total > 0.8) return 'Very little spilled.';
+        if (caught / SG.total > 0.6) return 'Solid catch.';
+        if (pct === 60) return 'Exactly 60%. It has to be more than that.';
+        if (pct > 40) return 'About half made it into the bowl.';
+        if (pct > 20) return 'Most of it ended up on the floor.';
+        return 'The floor got almost all of it.';
+      }
+
+      function sgRenderShelf() {
+        if (!sgShelf) return;
+        sgShelf.textContent = '';
+        const count = getTrophyCount();
+        const shown = Math.min(count, 24);
+        for (let i = 0; i < shown; i++) sgShelf.appendChild(trophySvg(i, ''));
+        if (sgTrophyEl) sgTrophyEl.textContent = String(count);
+      }
+
+      function sgHud() {
+        if (sgCaughtEl) sgCaughtEl.textContent = String(SG.caught);
+        if (sgTotalEl) sgTotalEl.textContent = String(SG.total);
+      }
+
+      function sgColors() {
+        const cs = getComputedStyle(document.body);
+        return {
+          accent: (cs.getPropertyValue('--color-accent') || '#d57624').trim(),
+          ink: (cs.getPropertyValue('--color-text-heading') || '#1f2937').trim()
+        };
+      }
+
+      function sgDraw() {
+        if (!sgCtx) return;
+        const c = sgColors();
+        const ctx = sgCtx;
+        ctx.clearRect(0, 0, SG.W, SG.H);
+
+        SG.drops.forEach((d) => {
+          const r = d.r;
+          ctx.beginPath();
+          ctx.moveTo(d.x, d.y - r * 1.9);
+          ctx.bezierCurveTo(d.x + r * 0.4, d.y - r * 0.9, d.x + r, d.y - r * 0.4, d.x + r, d.y + r * 0.2);
+          ctx.arc(d.x, d.y + r * 0.2, r, 0, Math.PI, false);
+          ctx.bezierCurveTo(d.x - r, d.y - r * 0.4, d.x - r * 0.4, d.y - r * 0.9, d.x, d.y - r * 1.9);
+          ctx.closePath();
+          ctx.fillStyle = '#e0703a';
+          ctx.fill();
+        });
+
+        const bx = SG.bowlX, bw = SG.bowlW, by = SG.H - 62 - SG.bump * 4;
+        const left = bx - bw / 2, right = bx + bw / 2;
+        ctx.beginPath();
+        ctx.moveTo(left, by);
+        ctx.lineTo(right, by);
+        ctx.bezierCurveTo(right, by + 38, bx + bw * 0.25, by + 42, bx, by + 42);
+        ctx.bezierCurveTo(bx - bw * 0.25, by + 42, left, by + 38, left, by);
+        ctx.closePath();
+        ctx.fillStyle = c.accent;
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = c.ink;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(bx, by + 1, bw / 2 - 5, 5, 0, 0, Math.PI * 2);
+        ctx.fillStyle = '#e0703a';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(bx - 18, by + 48);
+        ctx.lineTo(bx + 18, by + 48);
+        ctx.stroke();
+      }
+
+      function sgFinish() {
+        SG.running = false;
+        cancelAnimationFrame(SG.raf);
+        const pct = Math.round((SG.caught / SG.total) * 100);
+        const win = SG.caught / SG.total > 0.6;
+        let count = getTrophyCount();
+        if (win) {
+          count += 1;
+          localStorage.setItem(TROPHY_KEY, String(count));
+          placeTrophy(count - 1, true);
+        }
+        sgBig.hidden = false;
+        sgBig.textContent = pct + '%';
+        sgMessage.textContent = sgMessageFor(pct, SG.caught);
+        sgSub.textContent = win ? 'Trophy added to the background.' : 'You need more than 60% for a trophy.';
+        sgStart.textContent = 'Play again';
+        sgRenderShelf();
+        sgOverlay.hidden = false;
+      }
+
+      function sgLoop(t) {
+        if (!SG.running) return;
+        const dt = Math.min((t - SG.last) / 1000, 0.05);
+        SG.last = t;
+
+        if (SG.spawned < SG.total && t >= SG.nextSpawn) {
+          SG.drops.push({ x: 24 + Math.random() * (SG.W - 48), y: -12, vy: 150 + Math.random() * 60 + SG.spawned * 3, r: 7 + Math.random() * 2, done: false });
+          SG.spawned += 1;
+          SG.nextSpawn = t + 580 + Math.random() * 360;
+        }
+
+        if (SG.left) SG.targetX -= 420 * dt;
+        if (SG.right) SG.targetX += 420 * dt;
+        SG.targetX = Math.max(SG.bowlW / 2, Math.min(SG.W - SG.bowlW / 2, SG.targetX));
+        SG.bowlX += (SG.targetX - SG.bowlX) * Math.min(1, dt * 18);
+        SG.bump = Math.max(0, SG.bump - dt * 8);
+
+        const rimY = SG.H - 62;
+        for (const d of SG.drops) {
+          if (d.done) continue;
+          d.y += d.vy * dt;
+          if (d.y + d.r >= rimY && d.y <= rimY + 16 && Math.abs(d.x - SG.bowlX) <= SG.bowlW / 2 - 3) {
+            d.done = true;
+            SG.caught += 1;
+            SG.resolved += 1;
+            SG.bump = 1;
+            sgHud();
+          } else if (d.y - d.r > SG.H) {
+            d.done = true;
+            SG.resolved += 1;
+          }
+        }
+        SG.drops = SG.drops.filter((d) => !d.done);
+
+        sgDraw();
+        if (SG.resolved >= SG.total) { sgFinish(); return; }
+        SG.raf = requestAnimationFrame(sgLoop);
+      }
+
+      function sgStartRound() {
+        SG.drops = [];
+        SG.spawned = 0; SG.resolved = 0; SG.caught = 0;
+        SG.bowlX = SG.targetX = SG.W / 2;
+        SG.bump = 0;
+        sgHud();
+        sgOverlay.hidden = true;
+        SG.running = true;
+        SG.last = performance.now();
+        SG.nextSpawn = SG.last + 500;
+        cancelAnimationFrame(SG.raf);
+        SG.raf = requestAnimationFrame(sgLoop);
+      }
+
+      function openSoupGame() {
+        if (!sgModal) return;
+        sgSetupCanvas();
+        SG.running = false;
+        cancelAnimationFrame(SG.raf);
+        SG.drops = []; SG.caught = 0; SG.bowlX = SG.targetX = SG.W / 2;
+        sgHud();
+        sgBig.hidden = true;
+        sgMessage.textContent = '20 drops of soup fall. Catch more than 60% in the bowl and a trophy goes on the background.';
+        sgSub.textContent = '';
+        sgStart.textContent = 'Start';
+        sgRenderShelf();
+        sgOverlay.hidden = false;
+        sgDraw();
+        sgModal.removeAttribute('hidden');
+        void sgModal.offsetWidth;
+        sgModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeSoupGame() {
+        if (!sgModal) return;
+        SG.running = false;
+        cancelAnimationFrame(SG.raf);
+        SG.left = SG.right = false;
+        sgModal.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          if (!sgModal.classList.contains('active')) sgModal.setAttribute('hidden', '');
+        }, 250);
+      }
+
+      if (sgModal) {
+        const sgSteer = (e) => {
+          const rect = sgCanvas.getBoundingClientRect();
+          if (!rect.width) return;
+          SG.targetX = ((e.clientX - rect.left) / rect.width) * SG.W;
+        };
+        sgCanvas.addEventListener('pointerdown', (e) => {
+          try { sgCanvas.setPointerCapture(e.pointerId); } catch (_) {}
+          sgSteer(e);
+        });
+        sgCanvas.addEventListener('pointermove', sgSteer);
+        sgStart.addEventListener('click', sgStartRound);
+        document.getElementById('soup-game-close').addEventListener('click', closeSoupGame);
+        document.getElementById('soup-game-backdrop').addEventListener('click', closeSoupGame);
+        document.addEventListener('keydown', (e) => {
+          if (!sgModal.classList.contains('active')) return;
+          if (e.key === 'Escape') { closeSoupGame(); return; }
+          if (e.key === 'ArrowLeft' || e.key === 'a') { SG.left = true; if (e.key !== 'a') e.preventDefault(); }
+          if (e.key === 'ArrowRight' || e.key === 'd') { SG.right = true; if (e.key !== 'd') e.preventDefault(); }
+        });
+        document.addEventListener('keyup', (e) => {
+          if (e.key === 'ArrowLeft' || e.key === 'a') SG.left = false;
+          if (e.key === 'ArrowRight' || e.key === 'd') SG.right = false;
+        });
+      }
 
       restoreCustomDoodles();
       updateAudioTrackLabel();
