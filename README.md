@@ -42,10 +42,6 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 <td>record a voice note on android and it lands in whatever chat you're in. typing on glass sucks.<br><br><a href="https://github.com/walsoup"><img alt="kotlin" src="https://img.shields.io/badge/kotlin-1f0f14?style=flat-square&amp;logo=kotlin&amp;logoColor=e0526a"></a> &nbsp; <a href="https://github.com/walsoup"><img alt="alpha" src="https://img.shields.io/badge/alpha-b87a8f?style=flat-square"></a></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://github.com/walsoup/Fichegen"><strong>fichegen</strong></a></td>
-<td>lesson prep for teachers, written by an llm so you don't have to. native macos app on <code>main</code>, a <a href="https://github.com/walsoup/Fichegen/tree/windows-native">windows build</a> on its own branch, original python script in history.<br><br><a href="https://github.com/walsoup"><img alt="python" src="https://img.shields.io/badge/python-1f0f14?style=flat-square&amp;logo=python&amp;logoColor=e0526a"></a> <a href="https://github.com/walsoup"><img alt="macos" src="https://img.shields.io/badge/macos-1f0f14?style=flat-square&amp;logo=apple&amp;logoColor=e0526a"></a></td>
-</tr>
-<tr>
 <td valign="top"><a href="https://github.com/walsoup/intel-arc-llm"><strong>intel-arc-llm</strong></a></td>
 <td>local llm inference tuned for intel arc igpus: vulkan, dp4a, speculative decoding.<br><br><a href="https://github.com/walsoup"><img alt="c++" src="https://img.shields.io/badge/c++-1f0f14?style=flat-square&amp;logo=cplusplus&amp;logoColor=e0526a"></a> &nbsp; <a href="https://github.com/walsoup"><img alt="moving fast" src="https://img.shields.io/badge/moving_fast-e0b94a?style=flat-square"></a></td>
 </tr>
