@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#121212" />
 
   <meta property="og:title" content="souphater.page" />
-  <meta property="og:description" content="My personal website" />
+  <meta property="og:description" content="Wal's soup" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://souphater.page" />
   <meta property="og:site_name" content="Wal" />
@@ -798,28 +798,6 @@
 
     .polaroid-card:hover {
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
-    }
-
-    .vibe-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      line-height: 1.7;
-    }
-
-    .vibe-item {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      color: var(--color-text-muted);
-      font-size: 0.92rem;
-    }
-
-    .vibe-marker {
-      color: var(--color-accent);
-      font-weight: 700;
-      opacity: 0.7;
-      user-select: none;
     }
 
     .vibe-interactive-text {
@@ -1672,11 +1650,6 @@
       text-decoration: none;
     }
 
-
-    .bio-facts { margin: 0 0 1rem 0; display: grid; gap: 0.4rem; }
-    .bio-facts > div { display: flex; gap: 0.9rem; font-size: 0.95rem; }
-    .bio-facts dt { flex: 0 0 5.5rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.1em; padding-top: 0.2rem; }
-    .bio-facts dd { margin: 0; color: var(--color-text-main); }
 
     .project-name:hover {
       text-decoration: underline;
@@ -2550,37 +2523,19 @@
         <div id="bio" class="content-section">
           <h2 class="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
           <p class="text-lg mb-4">Walid Elonok, 1st year SDIA at FSR.</p>
-          <p class="text-lg mb-4">every elegant solution eventually creates a new, much worse problem.</p>
-          <p class="text-lg mb-4">I like taking photos of cats (among other things), and building stuff to kill time</p>
-          <p class="text-lg mb-4">i build weird software to kill time, and sometimes it turns into something useful. mostly offline protocols, audio dsp, agentic tooling and mobile ux. <a class="project-name" href="#projects">projects</a>.</p>
-          <p class="text-lg mb-4">away from the keyboard: cats (i photograph them and collect cat facts), doodling, and soup. i make a lot of soup. yes, souphater.page. no, i don't hate soup.</p>
-          <dl class="bio-facts">
-            <div><dt>writes in</dt><dd>kotlin, python, typescript, javascript, c++, rust</dd></div>
-            <div><dt>runs on</dt><dd>android, windows, macos, linux, node.js</dd></div>
-            <div><dt>find me</dt><dd><a class="project-name" href="https://github.com/walsoup" target="_blank" rel="noopener noreferrer">github.com/walsoup</a></dd></div>
-          </dl>
+          <p class="text-lg mb-4">I photograph cats, <span id="vibe-doodle-trigger" class="vibe-interactive-text" role="button" tabindex="0" title="Draw on the background">doodle</span>, and make a lot of <span id="vibe-soup" class="vibe-interactive-text vibe-soup-highlight" role="button" tabindex="0" title="Catch the soup">soup</span>. The domain is an old handle.</p>
+          <p class="text-lg mb-4">I'd rather it work offline, until it needs an API.</p>
 
           <div class="mt-6 max-w-lg mx-auto">
             <div id="bio-flower-card" class="polaroid-card p-3 rounded-2xl cursor-pointer" title="Click to view flower in lightbox">
-              <img src="flower.jpg" alt="A beautiful flower" class="rounded-xl shadow-md w-full object-cover aspect-[4/3]"
-                onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFDAB9/B22222?text=A+Cool+Flower';" />
+              <img src="flower.jpg" alt="flower" class="rounded-xl shadow-md w-full object-cover aspect-[4/3]"
+                onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFDAB9/B22222?text=flower';" />
             </div>
-          </div>
-
-          <div class="mt-8 pt-6 border-t border-white/10">
-            <h3 class="text-xs uppercase font-bold tracking-widest text-gray-500 mb-3">Things I vibe with</h3>
-            <ul class="vibe-list space-y-2 text-sm text-gray-400" role="list">
-              <li class="vibe-item"><span class="vibe-marker font-mono">~</span> cats (animals in general)</li>
-              <li class="vibe-item"><span class="vibe-marker font-mono">~</span> <span id="vibe-doodle-trigger" class="vibe-interactive-text" role="button" tabindex="0" title="Click to draw squiggles!">drawing &amp; doodling</span></li>
-              <li class="vibe-item"><span class="vibe-marker font-mono">~</span> <span id="vibe-soup" class="vibe-interactive-text vibe-soup-highlight" role="button" tabindex="0" title="Play catch the soup">soup</span></li>
-              <li class="vibe-item"><span class="vibe-marker font-mono">~</span> computers obviously</li>
-            </ul>
           </div>
         </div>
 
         <div id="projects" class="content-section">
           <h2 class="text-4xl md:text-5xl font-bold mb-4">Projects</h2>
-          <p class="text-lg mb-4">stuff i build to kill time. all on <a class="project-name" href="https://github.com/walsoup" target="_blank" rel="noopener noreferrer">github</a>.</p>
           <ul class="project-list" role="list">
             <li class="project-item">
               <a class="project-name" href="https://github.com/walsoup/ditto" target="_blank" rel="noopener noreferrer">ditto</a>
@@ -2595,7 +2550,7 @@
             <li class="project-item">
               <a class="project-name" href="https://github.com/walsoup/intel-arc-llm" target="_blank" rel="noopener noreferrer">intel-arc-llm</a>
               <p class="project-desc">local llm inference tuned for intel arc igpus: vulkan, dp4a, speculative decoding.</p>
-              <p class="project-meta">c++ / moving fast</p>
+              <p class="project-meta">c++</p>
             </li>
             <li class="project-item">
               <a class="project-name" href="https://github.com/walsoup/gemwallet" target="_blank" rel="noopener noreferrer">gemwallet</a>
@@ -2605,7 +2560,7 @@
             <li class="project-item">
               <a class="project-name" href="https://github.com/walsoup/agent-base" target="_blank" rel="noopener noreferrer">agent-base</a>
               <p class="project-desc">a small agent loop with streaming, reasoning logs and human approval.</p>
-              <p class="project-meta">typescript / shipping</p>
+              <p class="project-meta">typescript</p>
             </li>
             <li class="project-item">
               <a class="project-name" href="https://github.com/walsoup/bitnet" target="_blank" rel="noopener noreferrer">bitnet</a>
@@ -2632,7 +2587,7 @@
           <p class="text-lg mb-4">some cat pics I took</p>
 
           <div class="mb-6 p-4 rounded-lg bg-white/5 border border-white/10">
-            <p id="cat-fact" class="fun-fact-text text-center italic text-gray-400">1 cat fact coming your way...</p>
+            <p id="cat-fact" class="fun-fact-text text-center italic text-gray-400">loading a fact</p>
             <button id="cat-fact-refresh" class="refresh-btn mt-3 mx-auto block text-sm py-2 px-4">
               another fact pls
             </button>
@@ -3053,7 +3008,7 @@
       }
 
       function triggerCatCouncil() {
-        showToast('🐾 The cat council has approved this website! :3', '🐱', 4000);
+        showToast('meow', '🐱', 2500);
         if (!document.body || !document.body.appendChild) return;
         for (let i = 0; i < 8; i++) {
           setTimeout(() => {
@@ -3147,15 +3102,6 @@
       let currentStroke = null;
       let currentDoodleTool = 'pen'; // 'pen' | 'eraser'
       let currentDoodleColor = 'accent'; // 'accent' | hex color string
-      let doodleCheerIndex = 0;
-
-      const DOODLE_CHEER_MESSAGES = [
-        'Nice work :3',
-        'Looks cute :3',
-        'Masterpiece :3',
-        'Very aesthetic :3',
-        'Clean doodle :3'
-      ];
 
       function getActiveDoodleColor() {
         if (currentDoodleColor === 'accent') {
@@ -3559,9 +3505,6 @@
         doodleStrokes = [];
         currentStroke = null;
 
-        const cheerMsg = DOODLE_CHEER_MESSAGES[doodleCheerIndex % DOODLE_CHEER_MESSAGES.length];
-        doodleCheerIndex++;
-        showToast(cheerMsg, '🎨', 2200);
       }
 
       function restoreCustomDoodles() {
@@ -3626,7 +3569,7 @@
         if (isDoodleActive) {
           setDoodleTool('pen');
           body.classList.add('doodle-mode-active');
-          showToast('〰️ Doodle Mode! Draw squiggles anywhere', '🎨', 2200);
+          showToast('draw anywhere. esc to stop.', '✏️', 2200);
         } else {
           body.classList.remove('doodle-mode-active');
         }
@@ -3981,12 +3924,11 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
         "Cats possess an extra sensory organ on the roof of their mouth called the Jacobson's organ.",
         "A cat's spine is exceptionally flexible because its vertebrae are connected by elastic cushioning.",
         "Cats don't meow at other adult cats. Meowing is reserved almost entirely for humans.",
-        "Every cat's purr has therapeutic healing frequencies shown to lower stress.",
         "If you stare at a cat and slowly blink, it is cat language for 'I trust you'."
       ];
 
       function getRandomFact(db) {
-        return "Fun Fact: " + db[Math.floor(Math.random() * db.length)];
+        return db[Math.floor(Math.random() * db.length)];
       }
 
       /*

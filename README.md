@@ -12,17 +12,15 @@
 
 [projects](#projects) · [smaller stuff](#smaller-stuff) · [stack](#stack) · [numbers](#numbers)
 
-*"every elegant solution eventually creates a new, much worse problem."*
-
 </div>
 
 <br>
 
 <h2><a href="https://github.com/walsoup"><img alt="01 / ABOUT" src="https://img.shields.io/badge/01-ABOUT-1f0f14?style=for-the-badge&labelColor=e0526a" height="32"></a></h2>
 
-i build weird software to kill time, and sometimes it turns into something useful.
+1st year sdia at fsr. i photograph cats, doodle, and make a lot of soup. the domain is an old handle.
 
-away from the keyboard: cats (i photograph them and collect cat facts), doodling, and soup. i make a lot of soup. *(yes, souphater.page. no, i don't hate soup.)*
+i'd rather it work offline, until it needs an api.
 
 <div align="center">
 
@@ -43,7 +41,7 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 </tr>
 <tr>
 <td valign="top"><a href="https://github.com/walsoup/intel-arc-llm"><strong>intel-arc-llm</strong></a></td>
-<td>local llm inference tuned for intel arc igpus: vulkan, dp4a, speculative decoding.<br><br><a href="https://github.com/walsoup"><img alt="c++" src="https://img.shields.io/badge/c++-1f0f14?style=flat-square&amp;logo=cplusplus&amp;logoColor=e0526a"></a> &nbsp; <a href="https://github.com/walsoup"><img alt="moving fast" src="https://img.shields.io/badge/moving_fast-e0b94a?style=flat-square"></a></td>
+<td>local llm inference tuned for intel arc igpus: vulkan, dp4a, speculative decoding.<br><br><a href="https://github.com/walsoup"><img alt="c++" src="https://img.shields.io/badge/c++-1f0f14?style=flat-square&amp;logo=cplusplus&amp;logoColor=e0526a"></a></td>
 </tr>
 <tr>
 <td valign="top"><a href="https://github.com/walsoup/gemwallet"><strong>gemwallet</strong></a></td>
@@ -51,7 +49,7 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 </tr>
 <tr>
 <td valign="top"><a href="https://github.com/walsoup/agent-base"><strong>agent-base</strong></a></td>
-<td>a small agent loop with streaming, reasoning logs and human approval.<br><br><a href="https://github.com/walsoup"><img alt="typescript" src="https://img.shields.io/badge/typescript-1f0f14?style=flat-square&amp;logo=typescript&amp;logoColor=e0526a"></a> &nbsp; <a href="https://github.com/walsoup"><img alt="shipping" src="https://img.shields.io/badge/shipping-79b38a?style=flat-square"></a></td>
+<td>a small agent loop with streaming, reasoning logs and human approval.<br><br><a href="https://github.com/walsoup"><img alt="typescript" src="https://img.shields.io/badge/typescript-1f0f14?style=flat-square&amp;logo=typescript&amp;logoColor=e0526a"></a></td>
 </tr>
 <tr>
 <td valign="top"><a href="https://github.com/walsoup/bitnet"><strong>bitnet</strong></a></td>
@@ -121,7 +119,7 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 </tr>
 <tr>
 <td align="left"><strong>focus</strong></td>
-<td align="left">offline protocols, audio dsp, agentic tooling, mobile ux</td>
+<td align="left">offline protocols, audio dsp, agents, mobile ux</td>
 </tr>
 </tbody>
 </table>
