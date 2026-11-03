@@ -125,18 +125,10 @@ const jsBlocks = rawJsBlocks.map(code => {
 
 console.log('\n--- Verifying Jukebox Track Assets ---');
 const expectedTracks = [
-  'audio/tracks/itswal_expressive_bio.mp3',
-  'audio/tracks/itswal_expressive_cats.mp3',
-  'audio/tracks/itswal_expressive_home.mp3',
-  'audio/tracks/itswal_expressive_photos.mp3',
-  'audio/tracks/itswal_pink_bio.mp3',
-  'audio/tracks/itswal_pink_cats.mp3',
-  'audio/tracks/itswal_pink_home.mp3',
-  'audio/tracks/itswal_pink_photos.mp3',
-  'audio/tracks/itswal_space_bio.mp3',
-  'audio/tracks/itswal_space_cats.mp3',
-  'audio/tracks/itswal_space_home.mp3',
-  'audio/tracks/itswal_space_photos.mp3',
+  'audio/tracks/home.ogg',
+  'audio/tracks/bio.ogg',
+  'audio/tracks/cats.ogg',
+  'audio/tracks/photos.ogg',
 ];
 
 let tracksAllExist = true;
@@ -221,7 +213,7 @@ class MockElement {
 const mockIds = [
   'wal-toggle', 'wal-text', 'wal-cursor', 'animation-indicator', 'squiggle-svg',
   'theme-hint', 'audio-toggle-btn', 'lightbox', 'lightbox-img', 'squiggle-path',
-  'matrix-canvas', 'cat-fact', 'cat-fact-refresh', 'intro', 'bio', 'cat', 'photos',
+  'cat-fact', 'cat-fact-refresh', 'intro', 'bio', 'projects', 'cat', 'photos',
   'cat-album', 'photos-album', 'cat-album-status', 'photos-album-status'
 ];
 
@@ -347,6 +339,7 @@ const runTimeouts = () => {
 const sandbox = {
   document: mockDocument,
   window: {
+    matchMedia: () => ({ matches: false, addEventListener() {}, removeEventListener() {} }),
     AudioContext: MockAudioContext,
     webkitAudioContext: MockAudioContext,
     location: { hash: '' },
@@ -410,19 +403,6 @@ domContentLoadedCallbacks.forEach(cb => cb());
 // Clear initial requestAnimationFrame scheduled by showSection
 runRafs();
 
-// Now retrieve mousemove and touchmove listeners from mockDocument
-const mousemoveListeners = mockDocument.listeners['mousemove'] || [];
-const touchmoveListeners = mockDocument.listeners['touchmove'] || [];
-const touchstartListeners = mockDocument.listeners['touchstart'] || [];
-
-if (mousemoveListeners.length === 0 || touchmoveListeners.length === 0 || touchstartListeners.length === 0) {
-  throw new Error('Missing mouse/touch event listeners on document!');
-}
-
-const handleMouseMove = mousemoveListeners[0];
-const handleTouchMove = touchmoveListeners.find(cb => cb === handleMouseMove);
-const handleTouchStart = touchstartListeners.find(cb => cb === handleMouseMove);
-
 // Assertions function
 function assert(condition, message) {
   if (!condition) {
@@ -433,59 +413,18 @@ function assert(condition, message) {
 
 // 1. Initial State Check
 assert(mockDocument.body.classList.contains('theme-banana'), 'Initial theme should be banana');
-assert(mockDocument.body.style.properties['--mouse-x'] === undefined, 'Mouse coordinates should not be set initially');
 
-// 2. Click squiggle to cycle to dark theme (banana -> dark)
+// 2. Squiggle cycles banana -> default (shore, no theme class)
 const squiggleSvg = mockElements['squiggle-svg'];
 squiggleSvg.click();
-runTimeouts(); // Trigger nextTheme cycle
+runTimeouts();
+assert(!mockDocument.body.classList.contains('theme-banana'), 'Theme should cycle to the default theme');
+assert(!mockDocument.body.classList.contains('theme-dark'), 'There is no dark theme any more');
 
-assert(mockDocument.body.classList.contains('theme-dark'), 'Theme should now be dark');
-
-// 3. Move mouse when theme is dark
-handleMouseMove({ clientX: 100, clientY: 200 });
-assert(mockRafs.length === 1, 'One animation frame should be scheduled');
-assert(mockDocument.body.style.properties['--mouse-x'] === undefined, 'Style property should not update before requestAnimationFrame runs');
-
-// Run animation frame
-runRafs();
-assert(mockDocument.body.style.properties['--mouse-x'] === '100px', 'Mouse X coordinate was not updated correctly');
-assert(mockDocument.body.style.properties['--mouse-y'] === '200px', 'Mouse Y coordinate was not updated correctly');
-
-// 4. Test throttling: Multiple moves in same frame
-handleMouseMove({ clientX: 150, clientY: 250 });
-handleMouseMove({ clientX: 200, clientY: 300 });
-assert(mockRafs.length === 1, 'Only one animation frame should be scheduled due to throttling');
-
-runRafs();
-assert(mockDocument.body.style.properties['--mouse-x'] === '200px', 'Coordinates should update to the last position after animation frame');
-assert(mockDocument.body.style.properties['--mouse-y'] === '300px', 'Coordinates should update to the last position after animation frame');
-
-// 5. Test touch events
-handleTouchMove({ touches: [{ clientX: 50, clientY: 60 }] });
-assert(mockRafs.length === 1, 'Touchmove schedules an animation frame');
-runRafs();
-assert(mockDocument.body.style.properties['--mouse-x'] === '50px', 'Touch X coordinate should be updated');
-assert(mockDocument.body.style.properties['--mouse-y'] === '60px', 'Touch Y coordinate should be updated');
-
-console.log('Calling handleTouchStart. Function is:', handleTouchStart.toString());
-handleTouchStart({ touches: [{ clientX: 80, clientY: 90 }] });
-console.log('Called handleTouchStart. mockRafs length:', mockRafs.length);
-assert(mockRafs.length === 1, 'Touchstart schedules an animation frame');
-runRafs();
-assert(mockDocument.body.style.properties['--mouse-x'] === '80px', 'Touchstart X coordinate should be updated');
-assert(mockDocument.body.style.properties['--mouse-y'] === '90px', 'Touchstart Y coordinate should be updated');
-
-// 6. Test behavior in default theme (non-dark)
-// Cycle theme: dark -> default
+// 3. ...and back to banana
 squiggleSvg.click();
 runTimeouts();
-assert(!mockDocument.body.classList.contains('theme-dark'), 'Theme should cycle to default (which has no theme-dark class)');
-
-// Move mouse, should not set style properties
-handleMouseMove({ clientX: 500, clientY: 600 });
-runRafs();
-assert(mockDocument.body.style.properties['--mouse-x'] === undefined, 'Mouse coordinates should not be set in default theme');
+assert(mockDocument.body.classList.contains('theme-banana'), 'Theme should cycle back to banana');
 
 console.log('All event listener simulation tests: PASS');
 

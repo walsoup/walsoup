@@ -7,7 +7,7 @@
   <meta name="description" content="Wal's soup" />
   <meta name="author" content="Wal" />
   <meta name="keywords" content="Like... my shit" />
-  <meta name="theme-color" content="#121212" />
+  <meta name="theme-color" content="#efe4cc" />
 
   <meta property="og:title" content="souphater.page" />
   <meta property="og:description" content="My personal website" />
@@ -80,219 +80,11 @@
       box-sizing: border-box;
     }
 
-    /* --------------------------------------------------------------------------
-      THEME: DARK MODE 🌙 (Apple Liquid Glass)
-      Trigger: Type "night"
-      --------------------------------------------------------------------------
-      */
-    body.theme-dark {
-      --color-bg-primary: #0e0618;
-      --color-accent: #e879a8;
-      --color-accent-hover: #f472b6;
-      --color-text-main: #ede9f6;
-      --color-text-muted: #b8a4cc;
-      --color-text-heading: #f5f0ff;
-      --color-nav-text: #e0d0f0;
-      --color-social: #d97fb3;
-
-      --audio-btn-bg: rgba(200, 100, 160, 0.16);
-      --audio-btn-border: rgba(200, 100, 160, 0.3);
-      --audio-btn-color: #ede9f6;
-      --audio-btn-shadow: 0 8px 32px rgba(12, 4, 22, 0.6);
-      --audio-btn-hover-bg: rgba(220, 110, 170, 0.28);
-      
-      --mouse-x: 50vw;
-      --mouse-y: 50vh;
-      --blob-opacity: 0;
-      --glass-shine: rgba(200, 170, 220, 0.12);
-      --squiggle-bg-color: rgba(220, 120, 180, 0.45);
-    }
-
-    body.theme-dark::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background:
-        radial-gradient(circle 900px at 20% 20%, rgba(200, 90, 160, 0.24), transparent 60%),
-        radial-gradient(circle 1100px at 80% 80%, rgba(100, 60, 200, 0.22), transparent 60%),
-        radial-gradient(circle 750px at 50% 10%, rgba(180, 60, 140, 0.18), transparent 50%),
-        radial-gradient(circle 600px at 85% 25%, rgba(80, 50, 180, 0.2), transparent 50%),
-        radial-gradient(circle 500px at 15% 75%, rgba(60, 20, 120, 0.15), transparent 50%),
-        #08030f;
-    }
-
-    body.theme-dark::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      /* 50/50 cosmic space + pink nebula cursor glow */
-      background: 
-        radial-gradient(circle 600px at var(--mouse-x) var(--mouse-y), rgba(220, 100, 170, 0.75), transparent 70%),
-        radial-gradient(circle 800px at calc(var(--mouse-x) - 180px) calc(var(--mouse-y) + 180px), rgba(120, 80, 200, 0.55), transparent 65%),
-        radial-gradient(circle 520px at calc(var(--mouse-x) + 260px) calc(var(--mouse-y) - 100px), rgba(200, 70, 130, 0.5), transparent 70%),
-        radial-gradient(circle 900px at calc(var(--mouse-x) - 220px) calc(var(--mouse-y) - 180px), rgba(100, 60, 180, 0.4), transparent 70%);
-      filter: blur(55px);
-      transition: background 0.15s ease-out; 
-      opacity: 1;
-    }
-
     /* Ambient animated blobs */
-    body.animations-enabled.theme-dark::before {
-      background: 
-        radial-gradient(circle 850px at 20% 20%, rgba(200, 90, 160, 0.28), transparent 55%),
-        radial-gradient(circle 1050px at 80% 80%, rgba(100, 60, 200, 0.24), transparent 55%),
-        radial-gradient(circle 700px at 50% 15%, rgba(180, 60, 140, 0.18), transparent 50%),
-        radial-gradient(circle 800px at 70% 30%, rgba(80, 50, 180, 0.2), transparent 50%),
-        radial-gradient(circle 500px at 15% 75%, rgba(60, 20, 120, 0.15), transparent 50%),
-        #08030f;
-      animation: liquidPulse 15s ease-in-out infinite alternate;
-    }
 
     @keyframes liquidPulse {
       0% { transform: scale(1); opacity: 0.8; }
       100% { transform: scale(1.2); opacity: 1; }
-    }
-
-    body.theme-dark .main-content-box,
-    body.theme-dark .nav-link,
-    body.theme-dark .refresh-btn,
-    body.theme-dark .album-item,
-    body.theme-dark .bg-white\/5,
-    body.theme-dark .album-status {
-      background: rgba(20, 10, 35, 0.4) !important; 
-      border: 1px solid rgba(180, 100, 200, 0.22) !important;
-      backdrop-filter: blur(6px) saturate(140%) brightness(1.05) !important;
-      -webkit-backdrop-filter: blur(6px) saturate(140%) brightness(1.05) !important;
-      box-shadow: 
-        0 12px 36px rgba(8, 2, 18, 0.5),
-        inset 0 1px 2px rgba(200, 170, 220, 0.5),
-        inset 0 -1px 2px rgba(20, 8, 40, 0.4),
-        inset 0 0 18px rgba(160, 80, 180, 0.12) !important;
-    }
-
-    body.theme-dark .main-content-box {
-      border-radius: 50px !important;
-      border: 1px solid rgba(160, 90, 200, 0.25) !important;
-    }
-
-    body.theme-dark .side-nav {
-      background: transparent;
-      padding: 0;
-      gap: 16px;
-      box-shadow: none;
-      align-items: center;
-      justify-content: center;
-    }
-
-    body.theme-dark .nav-link {
-      position: relative;
-      border-radius: 999px;
-      padding: 12px 28px;
-      height: fit-content;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      color: var(--color-nav-text);
-      z-index: 1;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-      transition: all 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    body.theme-dark .nav-link:hover,
-    body.theme-dark .nav-link.active {
-      color: #f5f0ff;
-      background: rgba(160, 80, 190, 0.2) !important;
-      border-color: rgba(180, 100, 200, 0.4) !important;
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 
-        0 15px 30px rgba(15, 4, 30, 0.55),
-        0 0 20px rgba(160, 80, 190, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
-    }
-
-    body.theme-dark .nav-link:active {
-      transform: translateY(2px) scale(0.96) !important;
-      box-shadow: 
-        0 4px 10px rgba(10, 4, 25, 0.65),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-      transition-duration: 0.05s !important;
-    }
-
-    body.theme-dark .refresh-btn {
-      position: relative;
-      overflow: hidden;
-      color: #ffffff;
-      border-radius: 999px;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-      transition: all 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    body.theme-dark .refresh-btn:hover {
-      background: rgba(160, 80, 190, 0.22) !important;
-      border-color: rgba(180, 100, 200, 0.5) !important;
-      transform: translateY(-2px);
-      box-shadow: 
-        0 15px 30px rgba(15, 4, 30, 0.55),
-        0 0 22px rgba(160, 80, 190, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
-    }
-
-    body.theme-dark .refresh-btn:active {
-      transform: translateY(2px) scale(0.95) !important;
-      box-shadow: 
-        0 4px 10px rgba(10, 4, 25, 0.65),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-      transition-duration: 0.05s !important;
-    }
-
-    body.theme-dark .album-item {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-    }
-
-    body.theme-dark .album-item::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      border-radius: inherit;
-      z-index: 2;
-      box-shadow: inset 0 0 0 1px rgba(160, 90, 200, 0.25);
-    }
-
-    body.theme-dark .album-item img {
-      position: relative;
-      z-index: 1;
-      opacity: 0.92;
-      transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.2, 0, 0, 1);
-    }
-
-    body.theme-dark .album-item:hover img {
-      opacity: 1;
-      transform: scale(1.05);
-    }
-
-    body.theme-dark .bg-white\/5,
-    body.theme-dark .album-status {
-      border-radius: 20px;
-    }
-
-    body.theme-dark #cat-fact { color: #ede9f6; text-shadow: 0 1px 4px rgba(140, 80, 180, 0.3); }
-
-    body.theme-dark .social-icon { color: #d097c8; transition: all 0.3s ease; }
-    body.theme-dark .social-icon:hover {
-      color: #f5f0ff;
-      transform: scale(1.15);
-      filter: drop-shadow(0 0 8px rgba(160, 90, 200, 0.7));
     }
         /* --------------------------------------------------------------------------
       THEME: BANANA 🍌
@@ -641,10 +433,6 @@
       transform: scale(1.15) rotate(4deg);
     }
 
-    body.theme-dark .bg-squiggle {
-      filter: drop-shadow(0 0 8px rgba(160, 90, 200, 0.45));
-    }
-
     .squiggle-float-1 {
       top: 8%;
       right: 12%;
@@ -761,10 +549,6 @@
       opacity: 1;
       transform: scale(1.08) rotate(3deg);
       filter: drop-shadow(0 0 10px var(--color-accent));
-    }
-
-    body.theme-dark .user-doodle-squiggle {
-      filter: drop-shadow(0 0 8px rgba(160, 90, 200, 0.45));
     }
 
     body.animations-enabled .user-doodle-float-1 {
@@ -947,25 +731,6 @@
       --btn2-text: #46483B;
       --btn2-border: 1px solid transparent;
       --backdrop: rgba(70, 72, 59, 0.28);
-    }
-
-    body.theme-dark {
-      --btn-bg: var(--color-accent);
-      --btn-bg-hover: var(--color-accent-hover);
-      --panel-bg: rgba(22, 11, 38, 0.88);
-      --panel-border: 1px solid rgba(180, 100, 200, 0.35);
-      --panel-shadow: 0 14px 40px rgba(8, 2, 18, 0.6), inset 0 1px 1px rgba(200, 170, 220, 0.25);
-      --panel-text: #ede9f6;
-      --panel-muted: #b8a4cc;
-      --panel-rule: rgba(255, 255, 255, 0.12);
-      --chip-bg: rgba(255, 255, 255, 0.08);
-      --chip-border: 1px solid rgba(255, 255, 255, 0.12);
-      --btn-text: #1a0a2a;
-      --btn2-bg: rgba(255, 255, 255, 0.08);
-      --btn2-bg-hover: rgba(255, 255, 255, 0.15);
-      --btn2-text: #ede9f6;
-      --btn2-border: 1px solid rgba(255, 255, 255, 0.14);
-      --backdrop: rgba(8, 2, 18, 0.6);
     }
 
     /* Credits button (bottom left) */
@@ -1543,10 +1308,6 @@
       transform: scale(1.2);
     }
     body.theme-banana #social-email[aria-expanded="true"] { color: #121F00; transform: scale(1.25) rotate(-6deg); }
-    body.theme-dark #social-email[aria-expanded="true"] {
-      color: #f472b6;
-      filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.7));
-    }
 
     .email-popover {
       max-height: 0;
@@ -2152,36 +1913,12 @@
     }
 
     /* --------------------------------------------------------------------------
-      MATRIX MODE (HIDDEN EASTER EGG)
-      --------------------------------------------------------------------------
-      */
-    #matrix-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 9999;
-      pointer-events: none;
-      /* Let clicks pass through */
-      opacity: 0;
-      transition: opacity 1s ease;
-      display: none;
-    }
-
-    body.matrix-mode-active #matrix-canvas {
-      display: block;
-      opacity: 0.8;
-    }
-
-    /* --------------------------------------------------------------------------
       MEDIA QUERIES & RESPONSIVENESS
       --------------------------------------------------------------------------
       */
     @media (prefers-reduced-motion: reduce) {
 
       body.animations-enabled::before,
-      body.animations-enabled.theme-dark::after,
       body.animations-enabled .blob-1,
       body.animations-enabled .blob-2,
       body.animations-enabled .bg-squiggle,
@@ -2266,57 +2003,112 @@
       transition-duration: 0.05s !important;
     }
   
-    /* Liquid Morphing Styles */
-    body.theme-dark .nav-link,
-    body.theme-dark .refresh-btn,
-    body.theme-dark .main-content-box,
-    body.theme-dark .album-item,
-    body.theme-dark .album-status,
-    body.theme-dark .bg-white\/5 {
-      /* Smooth snap-back transition (JS will remove this during active hover to prevent stutter) */
-      transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1), 
-                  box-shadow 0.4s ease-out !important;
-      will-change: transform;
-    }
-    
-    /* Soft organic specular highlight tracking cursor */
-    body.theme-dark .nav-link::before,
-    body.theme-dark .refresh-btn::before,
-    body.theme-dark .main-content-box::before,
-    body.theme-dark .album-item::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      height: 100% !important; /* Fixes the legacy 50% height split line */
-      border-radius: inherit;
-      background: radial-gradient(
-        circle 200px at var(--local-x, 50%) var(--local-y, 50%), 
-        rgba(210, 180, 240, 0.3) 0%, 
-        rgba(180, 120, 200, 0.12) 40%, 
-        transparent 65%
-      );
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-      z-index: 10;
-      mix-blend-mode: color-dodge; /* Simulates light refraction nicely */
-    }
 
     /* Disable legacy pseudo-element gradients that cause split lines */
-    body.theme-dark .nav-link::after,
-    body.theme-dark .refresh-btn::after,
-    body.theme-dark .main-content-box::after,
-    body.theme-dark .album-item::after {
-      display: none !important;
+
+
+    /* --------------------------------------------------------------------------
+      HOME COMPOSITION + SMALL SCREENS + A11Y
+      --------------------------------------------------------------------------
+      */
+    .home-lede { font-size: 1.15rem; line-height: 1.5; margin: 1.25rem 0 1.25rem; max-width: 34rem; color: var(--color-text-heading); }
+    .home-peek { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; max-width: 40rem; margin-bottom: 1.1rem; }
+    .home-peek:empty { display: none; }
+    .home-peek-item { display: block; aspect-ratio: 4 / 3; border-radius: 18px; overflow: hidden; background: rgba(0, 0, 0, 0.06); }
+    .home-peek-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.25s ease; }
+    .home-peek-item:hover img { transform: scale(1.04); }
+    .home-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; }
+    .home-links a { color: var(--color-social); font-weight: 600; text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 1px; }
+    .home-links a:hover { color: var(--color-accent-hover); }
+    .home-links a:focus-visible, .social-icon:focus-visible, #squiggle-svg:focus-visible, .home-peek-item:focus-visible {
+      outline: 3px solid var(--color-social); outline-offset: 3px; border-radius: 6px;
+    }
+    @media (max-width: 767px) {
+      .relative.min-h-screen { align-items: center !important; padding: 1rem 1rem 4.5rem !important; }
+      .wal-title { font-size: clamp(1.9rem, 10vw, 3rem) !important; line-height: 1.1; }
+      .wal-container { max-width: 100%; }
+      .side-nav { flex: 0 0 auto !important; width: 100% !important; height: auto !important; margin-bottom: 1rem !important; gap: 0.35rem !important; flex-wrap: nowrap; justify-content: space-between !important; }
+      .side-nav .nav-link { padding: 0.55rem 0.7rem !important; font-size: 0.8rem !important; letter-spacing: 0 !important; white-space: nowrap; }
+      .main-content-box { padding: 1.5rem !important; }
+      .home-lede { font-size: 1.05rem; }
     }
 
-    body.theme-dark .nav-link:hover::before,
-    body.theme-dark .refresh-btn:hover::before,
-    body.theme-dark .main-content-box:hover::before,
-    body.theme-dark .album-item:hover::before {
-      opacity: 1;
+    /* --------------------------------------------------------------------------
+      THEME: SHORE (default). Flat sand, sea glass, driftwood text.
+      No blur, no shine. Pink stays as one small detail (the squiggle).
+      --------------------------------------------------------------------------
+      */
+    body:not(.theme-banana) {
+      --color-bg-primary: #efe4cc;
+      --color-accent: #3f7d6b;
+      --color-accent-hover: #2c6454;
+      --color-text-main: #4a392b;
+      --color-text-muted: #6f5d4c;
+      --color-text-heading: #3a2b1f;
+      --color-nav-text: #4a392b;
+      --color-social: #2f6f60;
+      --glass-bg: #fbf6ea;
+      --glass-border: rgba(74, 57, 43, 0.14);
+      --glass-shadow: 7px 7px 0 rgba(74, 57, 43, 0.08);
+      --glass-shine: transparent;
+      --audio-btn-bg: #fbf6ea;
+      --audio-btn-border: rgba(74, 57, 43, 0.2);
+      --audio-btn-color: #4a392b;
+      --audio-btn-shadow: 3px 3px 0 rgba(74, 57, 43, 0.1);
+      --audio-btn-hover-bg: #fff;
+      --squiggle-bg-color: rgba(63, 125, 107, 0.4);
+      --blob-opacity: 0;
     }
-
+    body:not(.theme-banana)::before {
+      background: linear-gradient(180deg, #f3e9d2 0%, #efe4cc 78%, #fbf8f0 78%, #fbf8f0 79.2%, #d8c6a0 79.2%, #d3bf97 100%);
+    }
+    body:not(.theme-banana) .blob { display: none; }
+    body:not(.theme-banana) .main-content-box {
+      border-radius: 20px;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      background: var(--glass-bg);
+      box-shadow: var(--glass-shadow);
+      border: 1px solid var(--glass-border);
+    }
+    body:not(.theme-banana) .main-content-box::before { display: none; }
+    body:not(.theme-banana) .nav-link {
+      letter-spacing: 0.02em; text-transform: none; font-size: 1rem; font-weight: 600;
+      padding: 0.55rem 1rem 0.55rem 0.8rem; border-radius: 999px; gap: 0.6rem;
+    }
+    body:not(.theme-banana) .nav-link::after { display: none; }
+    body:not(.theme-banana) .nav-link::before {
+      content: ''; width: 0.8rem; height: 0.8rem; flex: 0 0 auto;
+      border-radius: 55% 45% 60% 40% / 50% 60% 40% 50%;
+      background: #a9d3c4; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45);
+    }
+    body:not(.theme-banana) .nav-link:nth-child(2)::before { background: #7fb59f; }
+    body:not(.theme-banana) .nav-link:nth-child(3)::before { background: #b9d9cc; box-shadow: inset 0 0 0 2px rgba(63,125,107,0.35); }
+    body:not(.theme-banana) .nav-link:nth-child(4)::before { background: #e6a9b8; }
+    body:not(.theme-banana) .nav-link:nth-child(5)::before { background: #8fb7d6; }
+    body:not(.theme-banana) .nav-link:hover { color: var(--color-accent-hover); background: rgba(63, 125, 107, 0.1); transform: none; }
+    body:not(.theme-banana) .nav-link.active { color: #fff; background: var(--color-accent); transform: none; box-shadow: none; }
+    body:not(.theme-banana) .nav-link.active::before { box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.7); }
+    body:not(.theme-banana) #squiggle-path { stroke: #e58fa3; }
+    body:not(.theme-banana) .project-name, body:not(.theme-banana) .content-section a.project-name { color: var(--color-accent); }
+    body:not(.theme-banana) .album-item, body:not(.theme-banana) .refresh-btn, body:not(.theme-banana) .home-peek-item {
+      backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: 3px 3px 0 rgba(74, 57, 43, 0.1);
+    }
+    body:not(.theme-banana) .refresh-btn { background: #dcebe4; color: #2c4d42; border: 1px solid rgba(74, 57, 43, 0.15); }
+    body:not(.theme-banana) .refresh-btn:hover { background: #c9e0d6; }
+    .glass-piece { display: none; position: absolute; box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.4); opacity: 0.9; }
+    body:not(.theme-banana) .glass-piece { display: block; }
+    .glass-piece-1 { width: 74px; height: 62px; left: 6%; top: 14%; background: #8cc4ae; border-radius: 58% 42% 55% 45% / 50% 58% 42% 50%; }
+    .glass-piece-2 { width: 46px; height: 40px; right: 9%; top: 22%; background: #d9ece5; border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%; }
+    .glass-piece-3 { width: 38px; height: 34px; left: 12%; bottom: 17%; background: #e6a9b8; border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%; }
+    .glass-piece-4 { width: 58px; height: 50px; right: 14%; bottom: 10%; background: #6aa58f; border-radius: 60% 40% 45% 55% / 45% 55% 45% 55%; }
+    .glass-piece-5 { width: 26px; height: 24px; left: 30%; top: 8%; background: #8fb7d6; border-radius: 55% 45% 50% 50% / 50% 50% 50% 50%; }
+    @media (max-width: 767px) { .glass-piece-1, .glass-piece-5 { display: none !important; } }
+    @media (max-width: 767px) {
+      body:not(.theme-banana) .side-nav .nav-link { padding: 0.5rem 0.6rem !important; gap: 0.3rem; font-size: 0.85rem !important; }
+      body:not(.theme-banana) .side-nav .nav-link::before { width: 0.55rem; height: 0.55rem; }
+    }
+    body:not(.theme-banana) { --btn-bg: #3f7d6b; --btn-bg-hover: #2c6454; --btn-text: #fff; --btn-shadow: 3px 3px 0 rgba(74,57,43,0.12); --btn-shadow-hover: 3px 3px 0 rgba(74,57,43,0.18); }
   </style>
 </head>
 <!-- ... existing body code ... -->
@@ -2330,11 +2122,15 @@
   </div>
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <!-- ... rest of body ... -->
 
 
 
   <div id="bg-canvas-layer" class="fixed inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="glass-piece glass-piece-1"></div>
+    <div class="glass-piece glass-piece-2"></div>
+    <div class="glass-piece glass-piece-3"></div>
+    <div class="glass-piece glass-piece-4"></div>
+    <div class="glass-piece glass-piece-5"></div>
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <svg class="bg-squiggle squiggle-float-1" viewBox="0 0 180 80"><path d="M 10,40 C 40,5 70,75 100,40 C 130,5 160,75 170,40" /></svg>
@@ -2344,8 +2140,7 @@
     <svg class="bg-squiggle squiggle-float-5" viewBox="0 0 140 100"><path d="M 10,80 Q 40,10 70,80 T 130,80" /></svg>
   </div>
 
-  <canvas id="matrix-canvas"></canvas>
-  <canvas id="doodle-canvas"></canvas>
+    <canvas id="doodle-canvas"></canvas>
 
   <div id="doodle-toolbar" class="doodle-toolbar" aria-hidden="true">
     <button id="doodle-pen-btn" class="doodle-btn doodle-tool-active" title="Pen (P)" aria-label="Pen tool">✏️ Pen</button>
@@ -2466,9 +2261,8 @@
         <div id="intro" class="content-section visible">
           <div class="mb-4">
             <div class="wal-container" id="wal-toggle" role="button" tabindex="0" aria-label="Toggle animations">
-              <h1 class="wal-title text-5xl md:text-7xl" id="wal-text"></h1>
-              <span class="wal-cursor" id="wal-cursor"></span>
-              <span class="animation-indicator" id="animation-indicator">fx: on</span>
+              <h1 class="wal-title text-5xl md:text-7xl" id="wal-text">Walsoup</h1>
+                            <span class="animation-indicator" id="animation-indicator">fx: on</span>
             </div>
 
             <div class="relative block">
@@ -2477,16 +2271,28 @@
                 <div class="hint-arrow"></div>
               </div>
 
-              <svg id="squiggle-svg" class="h-8 w-40 -mt-2" viewBox="0 0 160 30" aria-hidden="true" tabindex="0">
+              <svg id="squiggle-svg" class="h-8 w-40 -mt-2" viewBox="0 0 160 30" role="button" aria-label="Change theme" tabindex="0">
                 <path id="squiggle-path" d="M 5,15 C 40,30 80,-10 155,15" />
               </svg>
             </div>
           </div>
 
-          <div class="social-icons-container flex items-center space-x-5 mt-6" role="list">
+
+          <p class="home-lede">Walid Elonok here. i build weird software to kill time, and sometimes it turns into something useful.</p>
+
+          <div class="home-peek" id="home-peek" aria-label="A few of my cat photos"></div>
+
+          <div class="home-links">
+            <a href="#projects">projects</a>
+            <a href="#cat">more cats</a>
+            <a href="#photos">photos</a>
+            <a href="#bio">about</a>
+          </div>
+
+          <div class="social-icons-container flex items-center space-x-5 mt-5" role="list">
             <a href="https://www.instagram.com/hatespotatosoup"
               class="social-icon h-6 w-6 flex items-center justify-center" target="_blank" rel="noopener noreferrer"
-              id="social-instagram">
+              id="social-instagram" aria-label="Instagram">
               <svg role="img" viewBox="-2 -2 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                 preserveAspectRatio="xMinYMin">
                 <path
@@ -2497,18 +2303,18 @@
               </svg>
             </a>
             <a href="https://github.com/walsoup/" class="social-icon h-6 w-6 flex items-center justify-center"
-              target="_blank" rel="noopener noreferrer" id="social-github"><svg fill="currentColor" viewBox="0 0 24 24">
+              target="_blank" rel="noopener noreferrer" id="social-github" aria-label="GitHub"><svg fill="currentColor" viewBox="0 0 24 24">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                   d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.017C22 6.484 17.523 2 12 2z" />
               </svg></a>
             <a href="https://twitter.com/ElonkWalid" class="social-icon h-6 w-6 flex items-center justify-center"
-              target="_blank" rel="noopener noreferrer" id="social-twitter"><svg fill="currentColor"
+              target="_blank" rel="noopener noreferrer" id="social-twitter" aria-label="X (Twitter)"><svg fill="currentColor"
                 viewBox="0 0 24 24">
                 <path
                   d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg></a>
             <a href="https://www.linkedin.com/in/itswal/" class="social-icon h-6 w-6 flex items-center justify-center"
-              target="_blank" rel="noopener noreferrer" id="social-linkedin"><svg fill="currentColor"
+              target="_blank" rel="noopener noreferrer" id="social-linkedin" aria-label="LinkedIn"><svg fill="currentColor"
                 viewBox="0 0 24 24">
                 <path
                   d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -2588,11 +2394,6 @@
               <p class="project-meta">kotlin / alpha</p>
             </li>
             <li class="project-item">
-              <a class="project-name" href="https://github.com/walsoup/Fichegen" target="_blank" rel="noopener noreferrer">fichegen</a>
-              <p class="project-desc">lesson prep for teachers, written by an llm so you don't have to. native macos app, a windows build on its own branch, original python script in history.</p>
-              <p class="project-meta">python, macos</p>
-            </li>
-            <li class="project-item">
               <a class="project-name" href="https://github.com/walsoup/intel-arc-llm" target="_blank" rel="noopener noreferrer">intel-arc-llm</a>
               <p class="project-desc">local llm inference tuned for intel arc igpus: vulkan, dp4a, speculative decoding.</p>
               <p class="project-meta">c++ / moving fast</p>
@@ -2666,7 +2467,6 @@
       const body = document.body;
       const walToggle = document.getElementById('wal-toggle');
       const walText = document.getElementById('wal-text');
-      const walCursor = document.getElementById('wal-cursor');
       const animationIndicator = document.getElementById('animation-indicator');
       const squiggleSvg = document.getElementById('squiggle-svg');
       const themeHint = document.getElementById('theme-hint');
@@ -3639,24 +3439,21 @@
       */
       const THEMES = {
         default: { name: 'Default', icon: '🌸', class: '' },
-        dark: { name: 'Dark Mode', icon: '🌙', class: 'theme-dark' },
         banana: { name: 'Banana', icon: '🍌', class: 'theme-banana' }
       };
 
-      const THEME_ORDER = ['default', 'banana', 'dark'];
+      const THEME_ORDER = ['default', 'banana'];
 
       // Theme keyboard triggers
       const THEME_CODES = {
-        'night': 'dark',
         'reset': DEFAULT_UI_THEME
       };
 
-      // Phones stay on the banana theme. The glass themes are too heavy for them.
+      // Shore and banana are both flat, so phones get the same theme choice as desktop.
       const mobileQuery = window.matchMedia('(max-width: 767px), (hover: none) and (pointer: coarse)');
       const isMobileDevice = () => mobileQuery.matches;
 
       function setTheme(themeKey, save = true, quiet = false) {
-        if (isMobileDevice()) { themeKey = DEFAULT_UI_THEME; save = false; quiet = true; }
         // Remove all theme classes
         Object.values(THEMES).forEach(t => {
           if (t.class) body.classList.remove(t.class);
@@ -3666,11 +3463,6 @@
         const theme = THEMES[themeKey];
         if (theme && theme.class) {
           body.classList.add(theme.class);
-        }
-
-        if (themeKey !== 'dark') {
-          body.style.removeProperty('--mouse-x');
-          body.style.removeProperty('--mouse-y');
         }
 
         currentTheme = themeKey;
@@ -3730,7 +3522,7 @@
 
       // Theme initialization: load saved theme when valid, otherwise default.
       const savedTheme = localStorage.getItem('wal-theme');
-      if (!isMobileDevice() && savedTheme && THEMES[savedTheme]) {
+      if (savedTheme && THEMES[savedTheme]) {
         setTheme(savedTheme, false, true);
       } else {
         setTheme(DEFAULT_UI_THEME, false, true);
@@ -3750,7 +3542,6 @@
 
         if (e.key === 'Escape') {
           if (isDoodleActive) toggleDoodleMode(false);
-          if (isMatrixActive) toggleMatrixMode();
         }
 
         keySequence.push(e.key.toLowerCase());
@@ -3767,13 +3558,6 @@
             keySequence = []; // Reset after match
             return;
           }
-        }
-
-        // Matrix easter egg :3
-        if (typed.endsWith('hack')) {
-          toggleMatrixMode();
-          keySequence = [];
-          return;
         }
 
         // Soup love easter egg 🥣
@@ -3816,7 +3600,6 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
       squiggleSvg.addEventListener('click', function (e) {
         e.preventDefault();
         hideThemeHint();
-        if (isMobileDevice()) return;
         squiggleClickCount++;
 
         if (squiggleClickTimer) clearTimeout(squiggleClickTimer);
@@ -3835,20 +3618,10 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
       squiggleSvg.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          squiggleSvg.click();
+          if (typeof squiggleSvg.click === 'function') squiggleSvg.click();
+          else squiggleSvg.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
         }
       });
-
-      const onMobileChange = () => {
-        if (isMobileDevice()) {
-          setTheme(DEFAULT_UI_THEME);
-        } else {
-          const saved = localStorage.getItem('wal-theme');
-          setTheme(saved && THEMES[saved] ? saved : DEFAULT_UI_THEME, false, true);
-        }
-      };
-      if (mobileQuery.addEventListener) mobileQuery.addEventListener('change', onMobileChange);
-      else if (mobileQuery.addListener) mobileQuery.addListener(onMobileChange);
 
       // If they linger on the site for a bit, give a gentle hint on Home.
       setTimeout(() => {
@@ -3867,24 +3640,22 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
           animationIndicator.textContent = 'fx: on';
           animationIndicator.classList.remove('off');
           animationIndicator.classList.add('on');
-          if (playIntro) playTypewriterEffect();
+          
         } else {
           body.classList.remove('animations-enabled');
           animationIndicator.textContent = 'fx: off';
           animationIndicator.classList.remove('on');
           animationIndicator.classList.add('off');
-          walText.textContent = 'Wal';
-          walCursor.classList.remove('typing', 'done');
+          walText.textContent = 'Walsoup';
         }
       }
 
       // Init state + Play Typewriter immediately
       updateAnimationState(false);
-      setTimeout(() => playTypewriterEffect(), 200);
 
       /*
       ====================================================================
-      WAL TOGGLE (Animations + Matrix)
+      WAL TOGGLE (Animations)
       ====================================================================
       */
       let walClickCount = 0;
@@ -3894,15 +3665,6 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
         animationsEnabled = !animationsEnabled;
         updateAnimationState(true);
 
-        // Matrix trigger
-        walClickCount++;
-        if (walClickTimer) clearTimeout(walClickTimer);
-        walClickTimer = setTimeout(() => walClickCount = 0, 500);
-
-        if (walClickCount >= 5) {
-          toggleMatrixMode();
-          walClickCount = 0;
-        }
       });
 
       walToggle.addEventListener('keydown', function (e) {
@@ -3911,34 +3673,6 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
           walToggle.click();
         }
       });
-
-      /*
-      ====================================================================
-      TYPEWRITER ENGINE
-      ====================================================================
-      */
-      function playTypewriterEffect() {
-        const text = 'Wal';
-        let index = 0;
-
-        walText.textContent = '';
-        walCursor.classList.add('typing');
-        walCursor.classList.remove('done');
-        walCursor.style.display = 'inline-block';
-
-        function type() {
-          if (index < text.length) {
-            walText.textContent += text[index];
-            index++;
-            setTimeout(type, 150 + Math.random() * 100);
-          } else {
-            walCursor.classList.remove('typing');
-            walCursor.classList.add('done');
-          }
-        }
-
-        setTimeout(type, 300);
-      }
 
       const CAT_FACT_DB = [
         "Cats spend 70% of their lives sleeping.",
@@ -4217,6 +3951,27 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
         return DRIVE_FALLBACK[fallbackKey] || [];
       }
 
+
+      // Home peek: three of the real cat photos, linking to the cat page.
+      (function buildHomePeek() {
+        const peek = document.getElementById('home-peek');
+        const pool = (DRIVE_FALLBACK.cats || []).slice();
+        if (!peek || !pool.length) return;
+        pool.sort(() => Math.random() - 0.5);
+        pool.slice(0, 3).forEach(item => {
+          const a = document.createElement('a');
+          a.href = '#cat';
+          a.className = 'home-peek-item';
+          const img = document.createElement('img');
+          img.alt = 'A cat I photographed';
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          img.src = `https://lh3.googleusercontent.com/d/${item.id}=s600`;
+          a.appendChild(img);
+          peek.appendChild(a);
+        });
+      })();
+
       async function loadAlbum(albumKey) {
         if (albumState[albumKey]?.loaded) return;
 
@@ -4376,68 +4131,6 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
       if (squigglePath) {
         const length = squigglePath.getTotalLength();
         squigglePath.style.setProperty('--squiggle-length', length);
-      }
-
-      /*
-      ====================================================================
-      MATRIX RAIN
-      ====================================================================
-      */
-      let matrixAnimationId;
-      let matrixLastDrawTime = 0;
-      let isMatrixActive = false;
-
-      function toggleMatrixMode() {
-        const canvas = document.getElementById('matrix-canvas');
-        const ctx = canvas.getContext('2d');
-
-        if (isMatrixActive) {
-          isMatrixActive = false;
-          body.classList.remove('matrix-mode-active');
-          cancelAnimationFrame(matrixAnimationId);
-          console.log('[MATRIX] Deactivated');
-        } else {
-          isMatrixActive = true;
-          body.classList.add('matrix-mode-active');
-          console.log('[MATRIX] Activated');
-
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-
-          const chars = 'アァカサタナハマヤャラワガザダバパABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!&$😛';
-          const fontSize = 16;
-          const columns = canvas.width / fontSize;
-          const drops = Array(Math.floor(columns)).fill(1);
-
-          const draw = () => {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-              const text = chars.charAt(Math.floor(Math.random() * chars.length));
-              ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-              if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-              drops[i]++;
-            }
-          };
-
-          const loop = (currentTime) => {
-            if (!isMatrixActive) return;
-
-            if (!matrixLastDrawTime) matrixLastDrawTime = currentTime;
-            const deltaTime = currentTime - matrixLastDrawTime;
-
-            if (deltaTime >= 30) {
-              draw();
-              matrixLastDrawTime = currentTime - (deltaTime % 30);
-            }
-            matrixAnimationId = requestAnimationFrame(loop);
-          };
-
-          matrixAnimationId = requestAnimationFrame(loop);
-        }
       }
 
       /*
@@ -4935,155 +4628,8 @@ SQUIGGLE INTERACTIONS (Cycle Themes)
       updateAudioTrackLabel();
 
       console.log(`[SYSTEM] v${APP_VERSION} loaded.`);
-      console.log(`[HINT] Try typing: night, reset, hack, soup, cat, or draw. Click squiggles to cycle or wiggle :3`);
+      console.log(`[HINT] Try typing: reset, soup, cat, or draw. Click squiggles to cycle or wiggle :3`);
 
-      let mouseX = 0;
-      let mouseY = 0;
-      let tick = false;
-
-      function updateMousePos(clientX, clientY) {
-        mouseX = clientX;
-        mouseY = clientY;
-        if (!tick) {
-          requestAnimationFrame(() => {
-            if (currentTheme === 'dark') {
-              body.style.setProperty('--mouse-x', `${mouseX}px`);
-              body.style.setProperty('--mouse-y', `${mouseY}px`);
-            }
-            tick = false;
-          });
-          tick = true;
-        }
-      }
-
-      function handlePointerMove(e) {
-        if (currentTheme !== 'dark') return;
-        const clientX = (e.touches && e.touches.length > 0) ? e.touches[0].clientX : e.clientX;
-        const clientY = (e.touches && e.touches.length > 0) ? e.touches[0].clientY : e.clientY;
-        updateMousePos(clientX, clientY);
-      }
-
-      document.addEventListener('mousemove', handlePointerMove);
-      document.addEventListener('touchstart', handlePointerMove, { passive: true });
-      document.addEventListener('touchmove', handlePointerMove, { passive: true });
-
-      // Advanced Liquid Glass Physics Engine (Anchored Stretching & Dragging)
-      let liquidElements = null;
-      let lastPhysicsTime = 0;
-      let draggedElement = null;
-
-      const startDrag = (e) => {
-         const target = e.target.closest('.theme-dark .nav-link, .theme-dark .refresh-btn, .theme-dark .main-content-box, .theme-dark .album-item');
-         if (target) draggedElement = target;
-      };
-      const endDrag = () => { draggedElement = null; };
-
-      document.addEventListener('mousedown', startDrag);
-      document.addEventListener('touchstart', startDrag, { passive: true });
-      document.addEventListener('mouseup', endDrag);
-      document.addEventListener('touchend', endDrag);
-      
-      const updatePhysics = (clientX, clientY) => {
-        if (!document.body.classList.contains('theme-dark')) {
-          if (liquidElements) {
-             liquidElements.forEach(el => el.style.transform = '');
-          }
-          return;
-        }
-        
-        const now = performance.now();
-        if (now - lastPhysicsTime < 16) return; 
-        lastPhysicsTime = now;
-
-        if (!liquidElements) liquidElements = document.querySelectorAll('.theme-dark .nav-link, .theme-dark .refresh-btn, .theme-dark .main-content-box, .theme-dark .album-item');
-        
-        liquidElements.forEach(el => {
-          const rect = el.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-          
-          const distX = clientX - centerX;
-          const distY = clientY - centerY;
-          const distance = Math.max(0.001, Math.sqrt(distX * distX + distY * distY));
-          const dx = distX / distance;
-          const dy = distY / distance;
-          
-          // Distance from center to the exact boundary edge in the cursor's direction
-          const edgeDist = Math.min( 
-              Math.abs((rect.width / 2) / dx), 
-              Math.abs((rect.height / 2) / dy) 
-          );
-          
-          const isDragged = draggedElement === el;
-          
-          // Specular highlight local coordinates
-          const localX = clientX - rect.left;
-          const localY = clientY - rect.top;
-          el.style.setProperty('--local-x', `${localX}px`);
-          el.style.setProperty('--local-y', `${localY}px`);
-          
-          let stretchAmount = 0;
-          let isWarping = false;
-          
-          if (isDragged) {
-              const pullDist = Math.min(distance, 400); 
-              stretchAmount = (pullDist / 400) * 0.45; // Up to 45% elongation
-              isWarping = true;
-          } else {
-              // Surface Tension Physics
-              if (distance <= edgeDist) {
-                  // Mouse is INSIDE pushing OUT
-                  const innerRange = 15; // Only interact within 15px of the inner edge
-                  if (edgeDist - distance < innerRange) {
-                      isWarping = true;
-                      const intensity = 1 - (edgeDist - distance) / innerRange;
-                      stretchAmount = intensity * 0.12; // Strongly stretch outwards to trap mouse (+12%)
-                  }
-              } else {
-                  // Mouse is OUTSIDE pushing IN
-                  const outerRange = 3; // Must be practically touching the glass to squish it
-                  if (distance - edgeDist < outerRange) {
-                      isWarping = true;
-                      const intensity = 1 - (distance - edgeDist) / outerRange;
-                      stretchAmount = -intensity * 0.04; // Squish inward (-4%)
-                  }
-              }
-          }
-          
-          if (isWarping) {
-            el.style.transition = 'none';
-            
-            // Anchor it firmly to the opposite side
-            const tx = dx * (stretchAmount * rect.width / 2);
-            const ty = dy * (stretchAmount * rect.height / 2);
-            
-            // Base directional scale
-            let sx = 1 + stretchAmount * Math.abs(dx) - (stretchAmount * 0.5) * Math.abs(dy);
-            let sy = 1 + stretchAmount * Math.abs(dy) - (stretchAmount * 0.5) * Math.abs(dx);
-            
-            // STRICT SURFACE AREA PRESERVATION RULE
-            // Ensure mathematically that the 2D bounding area strictly stays exactly 1.000x the original
-            const currentArea = sx * sy;
-            if (currentArea > 0) {
-               const correction = 1 / Math.sqrt(currentArea);
-               sx *= correction;
-               sy *= correction;
-            }
-            
-            el.style.transform = `translate(${tx}px, ${ty}px) scale(${sx}, ${sy})`;
-            el.dataset.liquidState = 'warping';
-          } else if (el.dataset.liquidState === 'warping') {
-             // Smooth snap-back
-             el.style.transition = 'transform 0.4s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.4s ease-out';
-             el.style.transform = `translate(0px, 0px) scale(1, 1)`;
-             el.dataset.liquidState = 'idle';
-          }
-        });
-      };
-      document.addEventListener('mousemove', (e) => updatePhysics(e.clientX, e.clientY));
-      document.addEventListener('touchmove', (e) => {
-          if (e.touches && e.touches.length > 0) updatePhysics(e.touches[0].clientX, e.touches[0].clientY);
-      }, { passive: true });
 
     });
   </script>
