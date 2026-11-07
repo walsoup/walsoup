@@ -2115,7 +2115,7 @@
     body.theme-banana .sg-rockcut { display: none; }
 
     body:not(.theme-banana) .sg-canvas {
-      position: absolute; inset: 0; width: 100%; height: 100%;
+      position: fixed; inset: 0; width: 100%; height: 100%;
       display: block; z-index: 0; pointer-events: none;
     }
     body:not(.theme-banana) #sg-stage-host > *:not(.sg-canvas) { position: relative; z-index: 1; }
@@ -5420,6 +5420,7 @@ uniform vec2 uResolution;
 uniform float uTime;
 uniform float uNight;
 uniform float uDpr;
+uniform vec2 uOffset;
 uniform float uGround;
 uniform float uSubmerge;
 uniform sampler2D uPhoto;
@@ -5460,7 +5461,7 @@ void stone(vec2 p, vec2 c, vec2 r, vec3 col, float seed, inout vec3 base) {
   vec3 n = vec3(q * 0.9, sqrt(max(0.0, 1.0 - min(l * l, 1.0))));
   float lam = dot(normalize(n + vec3(0.0, 0.0, 0.25)), normalize(vec3(-0.5, 0.7, 0.55)));
   float mottle = fbm((p - c) / 7.0 + seed) - 0.5;
-  float fleck = h21(floor(gl_FragCoord.xy / 2.0) + seed) - 0.5;
+  float fleck = h21(floor(p * (max(uDpr, 0.05) / 2.0)) + seed) - 0.5;
   vec3 s;
   if (uUseRock > 0.5) {
     float ra2 = seed * 1.7;
@@ -5476,11 +5477,12 @@ void stone(vec2 p, vec2 c, vec2 r, vec3 col, float seed, inout vec3 base) {
 }
 
 void main() {
-  float dpr = max(uDpr, 1.0);
-  vec2 px = gl_FragCoord.xy / dpr;
+  float dpr = max(uDpr, 0.05);
+  vec2 frag = gl_FragCoord.xy + uOffset;
+  vec2 px = frag / dpr;
   float W = uResolution.x / dpr;
   float H = uResolution.y / dpr;
-  float y01 = (uResolution.y - gl_FragCoord.y) / uResolution.y;
+  float y01 = (uResolution.y - frag.y) / uResolution.y;
   float night = uNight;
 
   float lineY = uLineY + 0.050 * (vn(vec2(px.x / 260.0, 1.7)) - 0.5) + 0.018 * (vn(vec2(px.x / 70.0, 5.3)) - 0.5) + 0.006 * (vn(vec2(px.x / 23.0, 9.1)) - 0.5);
@@ -5500,19 +5502,19 @@ void main() {
   vec3 sand = mix(dry, wet, wetT);
   sand *= 0.94 + 0.11 * fbm(px / 120.0);
 
-  float g1 = h21(floor(gl_FragCoord.xy)) * 2.0 - 1.0;
-  float g2 = h21(floor(gl_FragCoord.xy / 3.0) + vec2(41.0, 13.0)) * 2.0 - 1.0;
+  float g1 = h21(floor(frag)) * 2.0 - 1.0;
+  float g2 = h21(floor(frag / 3.0) + vec2(41.0, 13.0)) * 2.0 - 1.0;
   float grainAmp = mix(1.0, 0.55, wetT);
   sand += (g1 * 0.050 + g2 * 0.030) * grainAmp;
-  float fleck = h21(floor(gl_FragCoord.xy) + vec2(13.0, 77.0));
+  float fleck = h21(floor(frag) + vec2(13.0, 77.0));
   sand *= 1.0 - 0.38 * step(0.984, fleck) * (1.0 - night * 0.5);
-  sand += 0.10 * step(0.990, h21(floor(gl_FragCoord.xy) + vec2(5.0, 29.0))) * (1.0 - wetT * 0.7);
+  sand += 0.10 * step(0.990, h21(floor(frag) + vec2(5.0, 29.0))) * (1.0 - wetT * 0.7);
 
   float shoreMask = smoothstep(-0.003, 0.003, below);
   vec3 col = mix(sea, sand, shoreMask);
   float swash = sin(uTime * 0.45) * 0.5 + 0.5;
   if (uUsePhoto > 0.5) {
-    vec2 puv = vec2(vUv.x, 1.0 - vUv.y);
+    vec2 puv = vec2(frag.x / uResolution.x, 1.0 - frag.y / uResolution.y);
     puv.x = (puv.x - 0.5) * uPhotoScale.x + 0.5;
     puv.y = (puv.y - 0.5) * uPhotoScale.y + 0.5 + (swash - 0.5) * 0.011;
     vec3 ph = texture(uPhoto, puv).rgb;
@@ -5551,7 +5553,7 @@ void main() {
     col = mix(col, vec3(0.25, 0.32, 0.24), smoothstep(0.45, 0.70, y01) * 0.35);
   } else if (uGround > 2.5 && uGround < 3.5) {
     col = mix(col, sea, 0.72);
-    col += (h21(floor(gl_FragCoord.xy)) - 0.5) * 0.03;
+    col += (h21(floor(frag)) - 0.5) * 0.03;
   } else if (uGround > 3.5 && uGround < 4.5) {
     float grain = fbm(px * vec2(0.02, 0.008));
     float ring = sin(px.y * 0.08 + grain * 6.0);
@@ -5619,6 +5621,7 @@ precision highp float;
 out vec4 fragColor;
 in vec2 vUv;
 uniform vec2 uResolution;
+uniform vec2 uOffset;
 uniform sampler2D uBackdrop;
 uniform int uCount;
 uniform float uSmoothK;
@@ -5930,7 +5933,7 @@ vec3 sgCaustics(vec2 frag, vec3 base) {
 }
 
 void main() {
-  vec2 frag = gl_FragCoord.xy;
+  vec2 frag = gl_FragCoord.xy + uOffset;
   vec3 backdropSrgb = texture(uBackdrop, vUv).rgb;
   if (uSubmerge > 0.001) {
     backdropSrgb = mix(backdropSrgb, backdropSrgb * vec3(0.45, 0.66, 0.76), clamp(uSubmerge, 0.0, 1.0) * 0.5);
@@ -6263,6 +6266,15 @@ class SeaGlassStage {
     this._frames = [];
     this._drewOnce = false;
     this._frozen = null;
+    this._q = 1;
+    this._lastNow = null;
+    this._intervals = [];
+    this._viewDirty = false;
+    this._rootPageX = 0;
+    this._rootPageY = 0;
+    this._pageW = 0;
+    this._pageH = 0;
+    this.pxScale = 1;
     this.lastInput = performance.now();
     root.dataset.sgDensity = this.density;
     root.dataset.sgTier = String(this.tierResolved);
@@ -6294,7 +6306,8 @@ class SeaGlassStage {
     this.mo = new MutationObserver(() => { this._nodesDirty = true; });
     this.mo.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: [...NODE_ATTRS, "class"] });
     window.addEventListener("resize", this._onResize);
-    window.addEventListener("scroll", () => { this._nodesDirty = true; }, { passive: true, capture: true });
+    this._onScroll = () => { this._viewDirty = true; };
+    window.addEventListener("scroll", this._onScroll, { passive: true, capture: true });
     window.addEventListener("load", () => { this._nodesDirty = true; });
     if (document.fonts?.ready) document.fonts.ready.then(() => { this._nodesDirty = true; });
 
@@ -6410,15 +6423,22 @@ class SeaGlassStage {
 
   resize() {
     const gl = this.gl;
+    // The canvas is viewport-fixed: only the visible slice is rendered each
+    // frame. Node geometry lives in page space and the shaders offset
+    // fragments by scroll, so the render matches a full-page canvas without
+    // paying fill-rate for a page-sized buffer (that full-page fill is what
+    // made long mobile pages crawl). this.pxScale is the single
+    // buffer-px-per-css-px scale every CPU-side coordinate must use - the
+    // old code mixed raw dpr into buffers that were capped below dpr, which
+    // is what blew the glass nodes up into giant misplaced patches.
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const rect = this.root.getBoundingClientRect();
-    let w = Math.max(1, Math.round(rect.width * dpr));
-    let h = Math.max(1, Math.round(rect.height * dpr));
+    const scale = Math.max(0.6, dpr * (this._q || 1));
+    const vw = Math.max(1, window.innerWidth);
+    const vh = Math.max(1, window.innerHeight);
+    let w = Math.max(1, Math.round(vw * scale));
+    let h = Math.max(1, Math.round(vh * scale));
     // Browsers silently clamp oversized WebGL drawing buffers (~8192px).
-    // Long pages (mobile galleries) then render a dark, mis-mapped slice.
-    // Probe the real cap once, render oversized pages within it, and let the
-    // CSS-sized canvas scale the buffer back up - correct colors everywhere,
-    // slightly softer vertical detail only on oversized pages.
+    // Probe the real cap once and stay inside it.
     if (!this._maxBuf) {
       let cap = 4096;
       try {
@@ -6441,12 +6461,16 @@ class SeaGlassStage {
       w = Math.max(1, Math.round(w * sc));
       h = Math.max(1, Math.round(h * sc));
     }
-    if (this.canvas.width === w && this.canvas.height === h && this.target) return;
+    this.dpr = dpr;
+    this.pxScale = w / vw;
+    if (this.canvas.width === w && this.canvas.height === h && this.target) {
+      // Viewport unchanged: page metrics may have moved (content growth),
+      // so recollect node geometry but keep the target.
+      this._nodesDirty = true;
+      return;
+    }
     this.canvas.width = w;
     this.canvas.height = h;
-    this.canvas.style.width = `${rect.width}px`;
-    this.canvas.style.height = `${rect.height}px`;
-    this.dpr = dpr;
     if (this.target) {
       gl.deleteTexture(this.target.tex);
       gl.deleteFramebuffer(this.target.fbo);
@@ -6458,9 +6482,10 @@ class SeaGlassStage {
   }
 
   #pointer(e) {
-    const r = this.canvas.getBoundingClientRect();
-    const x = (e.clientX - r.left) * this.dpr;
-    const y = this.canvas.height - (e.clientY - r.top) * this.dpr;
+    const r = this.root.getBoundingClientRect();
+    const s = this.pxScale || 1;
+    const x = (e.clientX - r.left) * s;
+    const y = r.height * s - (e.clientY - r.top) * s;
     this.hoverIndex = -1;
     for (let i = 0; i < this._nodes.length; i++) {
       const b = this._nodes[i].bounds;
@@ -6469,8 +6494,12 @@ class SeaGlassStage {
   }
 
   #collect() {
-    const dpr = this.dpr || 1;
+    const dpr = this.pxScale || this.dpr || 1;
     const rootRect = this.root.getBoundingClientRect();
+    this._rootPageX = rootRect.left + (window.scrollX || 0);
+    this._rootPageY = rootRect.top + (window.scrollY || 0);
+    this._pageW = rootRect.width * dpr;
+    this._pageH = rootRect.height * dpr;
     const allEls = [...this.root.querySelectorAll("[data-sg-glass]")];
     const els = allEls.filter((el) => {
       const r = el.getBoundingClientRect();
@@ -6491,7 +6520,7 @@ class SeaGlassStage {
       const material = resolveMaterial(palette, climate, stratum, state, tide, { seaWashed: this.reducedTransparency });
       const bounds = [
         (r.left - rootRect.left + r.width / 2) * dpr,
-        this.canvas.height - (r.top - rootRect.top + r.height / 2) * dpr,
+        this._pageH - (r.top - rootRect.top + r.height / 2) * dpr,
         (r.width / 2) * dpr,
         (r.height / 2) * dpr,
       ];
@@ -6512,7 +6541,7 @@ class SeaGlassStage {
         el,
         bounds,
         radius: radiusCss * dpr,
-        tint: [...material.tint, material.thickness * Math.min(Math.max(dpr, 1), 1.35)],
+        tint: [...material.tint, material.thickness * Math.min(Math.max(this.dpr || 1, 1), 1.35) * (dpr / (this.dpr || 1))],
         optics: [material.density, material.coarseness, material.ior, material.dispersion],
         group: material.group,
         extra: [material.milky, shape, material.rim, material.transparency],
@@ -6560,13 +6589,16 @@ class SeaGlassStage {
     }
     const idle = !this.photoTex && now - this.lastInput > 4000;
     const still = this.tierResolved === 2 || this.reducedMotion || document.hidden || idle;
-    if (still && !this._nodesDirty && this._drewOnce) {
-      this._stillTimer = setTimeout(() => requestAnimationFrame(this.#tick), 250);
+    if (still && !this._nodesDirty && !this._viewDirty && this._drewOnce) {
+      // Park on a short timer: scrolling marks _viewDirty and needs a prompt
+      // redraw even while everything else is still.
+      this._stillTimer = setTimeout(() => requestAnimationFrame(this.#tick), 50);
       return;
     }
     const t0 = performance.now();
     this.draw();
     this._drewOnce = true;
+    this._viewDirty = false;
     const dt = performance.now() - t0;
     if (!this.tierLocked && this.tierResolved === 1) {
       this._frames.push(dt);
@@ -6577,7 +6609,25 @@ class SeaGlassStage {
         this._frames = [];
         this.root.dataset.sgTier = String(this.tierResolved);
       }
+      // GPU-bound jank shows up as stretched rAF intervals, not JS submit
+      // time. Step the render scale down until frames breathe again, and
+      // back up when there is headroom (floor 0.6 buffer px per css px).
+      if (this._lastNow != null) this._intervals.push(now - this._lastNow);
+      if (this._intervals.length >= 50) {
+        const si = [...this._intervals].sort((a, b) => a - b);
+        const med = si[Math.floor(si.length / 2)];
+        const dprCap = Math.min(window.devicePixelRatio || 1, 2);
+        if (med > 22 && this._q * dprCap > 0.65) {
+          this._q = Math.max(this._q * 0.8, 0.6 / dprCap);
+          this.resize();
+        } else if (med < 13 && this._q < 1) {
+          this._q = Math.min(1, this._q * 1.12);
+          this.resize();
+        }
+        this._intervals = [];
+      }
     }
+    this._lastNow = now;
     requestAnimationFrame(this.#tick);
   };
 
@@ -6591,13 +6641,22 @@ class SeaGlassStage {
 
     if (this._nodesDirty) this.#collect();
 
+    // Page-space metrics for the shaders: uOffset shifts viewport fragments
+    // into page-buffer coordinates; the backdrop maps the full page.
+    const s = this.pxScale || 1;
+    const pageW = this._pageW || w;
+    const pageH = this._pageH || h;
+    const offX = ((window.scrollX || 0) - (this._rootPageX || 0)) * s;
+    const offY = pageH - ((window.scrollY || 0) - (this._rootPageY || 0)) * s - h;
+
     gl.viewport(0, 0, w, h);
     gl.bindFramebuffer(gl.FRAMEBUFFER, this.target.fbo);
     gl.useProgram(this.backdropProg);
-    gl.uniform2f(this.#loc(this.backdropProg, "uResolution"), w, h);
+    gl.uniform2f(this.#loc(this.backdropProg, "uResolution"), pageW, pageH);
+    gl.uniform2f(this.#loc(this.backdropProg, "uOffset"), offX, offY);
     gl.uniform1f(this.#loc(this.backdropProg, "uTime"), t);
     gl.uniform1f(this.#loc(this.backdropProg, "uNight"), this.night);
-    gl.uniform1f(this.#loc(this.backdropProg, "uDpr"), this.dpr || 1);
+    gl.uniform1f(this.#loc(this.backdropProg, "uDpr"), s);
     if (this.ground !== "lab") {
       gl.uniform1f(this.#loc(this.backdropProg, "uGround"), GROUNDS[this.ground] ?? 0);
       gl.uniform1f(this.#loc(this.backdropProg, "uSubmerge"), this.submerge);
@@ -6610,7 +6669,7 @@ class SeaGlassStage {
     gl.uniform1f(this.#loc(this.backdropProg, "uStones"), this.showStones ? 1 : 0);
     let psx = 1, psy = 1;
     if (this.photoTex) {
-      const ca = w / h, pa = this.photoAspect || 1;
+      const ca = pageW / pageH, pa = this.photoAspect || 1;
       if (ca > pa) psy = pa / ca; else psx = ca / pa;
       // Very tall pages (mobile long galleries) shrink the cover window to a
       // few source pixels and smear dark. Hold the window at a floor and let
@@ -6638,9 +6697,10 @@ class SeaGlassStage {
     gl.bindTexture(gl.TEXTURE_2D, this.target.tex);
     gl.uniform1i(this.#loc(this.glassProg, "uBackdrop"), 0);
     gl.uniform2f(this.#loc(this.glassProg, "uResolution"), w, h);
+    gl.uniform2f(this.#loc(this.glassProg, "uOffset"), offX, offY);
     gl.uniform1f(this.#loc(this.glassProg, "uNight"), this.night);
     gl.uniform1i(this.#loc(this.glassProg, "uCount"), this._nodes.length);
-    gl.uniform1f(this.#loc(this.glassProg, "uSmoothK"), this.smoothK * this.dpr);
+    gl.uniform1f(this.#loc(this.glassProg, "uSmoothK"), this.smoothK * s);
     const drift = live ? Math.sin(t * 0.35) * 0.08 : 0;
     const lightX = this.night ? -0.28 : 0.42 + drift;
     const lightY = this.night ? 0.46 : 0.72;
@@ -6668,6 +6728,7 @@ class SeaGlassStage {
     this.elRo.disconnect();
     this.mo.disconnect();
     window.removeEventListener("resize", this._onResize);
+    window.removeEventListener("scroll", this._onScroll);
     this.root.removeEventListener("pointermove", this._onPointerMove);
     this.root.removeEventListener("pointerleave", this._onPointerLeave);
     this.root.removeEventListener("pointerdown", this._onPointerDown);
