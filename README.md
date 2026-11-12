@@ -134,8 +134,8 @@ away from the keyboard: cats (i photograph them and collect cat facts), doodling
 
 <div align="center">
 
-<a href="https://github.com/walsoup"><img height="170" alt="github stats" src="https://github-readme-stats.vercel.app/api?username=walsoup&show_icons=true&disable_animations=true&rank_icon=github&count_private=true&bg_color=1f0f14&title_color=e0526a&text_color=f4e3e8&icon_color=e0526a&border_color=54313e&hide_border=false"></a>
-<a href="https://github.com/walsoup"><img height="170" alt="top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=walsoup&layout=compact&disable_animations=true&hide_progress=false&langs_count=8&bg_color=1f0f14&title_color=e0526a&text_color=f4e3e8&icon_color=e0526a&border_color=54313e&hide_border=false"></a>
+<a href="https://github.com/walsoup"><img height="170" alt="github stats" src="https://github-readme-stats-seven-blue-82.vercel.app/api?username=walsoup&show_icons=true&disable_animations=true&rank_icon=github&count_private=true&bg_color=1f0f14&title_color=e0526a&text_color=f4e3e8&icon_color=e0526a&border_color=54313e&hide_border=false"></a>
+<a href="https://github.com/walsoup"><img height="170" alt="top languages" src="https://github-readme-stats-seven-blue-82.vercel.app/api/top-langs/?username=walsoup&layout=compact&disable_animations=true&hide_progress=false&langs_count=8&bg_color=1f0f14&title_color=e0526a&text_color=f4e3e8&icon_color=e0526a&border_color=54313e&hide_border=false"></a>
 
 </div>
 
